@@ -71,31 +71,32 @@ const AUDIENCES = [
 const UPCOMING = [
   {
     title: "Can You Trust AI?",
-    date: "Jul 14, 2025",
-    time: "6:00 PM",
+    date: "Jul 11, 2025",
+    time: "11:00 AM",
     location: "Online",
     desc: "An audience-participatory session exploring how language models produce misleading information and how to spot it in the wild.",
     status: "Open",
+    registerLink: "https://docs.google.com/forms/d/e/1FAIpQLScDoe32Gx_1i8UfireFBHfXzx65aStrR25ztIi13QKZUtsS_g/viewform?usp=dialog",
   },
   {
     title: "Understanding AI Hallucinations",
-    date: "Aug 5, 2025",
-    time: "5:30 PM",
+    date: "TBD",
+    time: "TBD",
     location: "Online",
     desc: "A close look at why AI systems confidently fabricate facts, citations, and events, and what that means for how we use them.",
     status: "Open",
   },
   {
     title: "Spotting Misleading AI",
-    date: "Sep 9, 2025",
-    time: "6:00 PM",
+    date: "TBD",
+    time: "TBD",
     location: "Online",
     desc: "Practical skills for identifying AI-generated misinformation, evaluating sources, and verifying claims before you rely on them.",
     status: "Coming Soon",
   },
   {
     title: "AI Safety for Everyday Users",
-    date: "Oct 2025",
+    date: "TBD",
     time: "TBD",
     location: "In-Person or Online",
     desc: "A non-technical introduction to AI safety research and what it means for how we interact with AI systems in daily life.",
@@ -413,15 +414,19 @@ function EventCard({ w }: { w: (typeof UPCOMING)[number] }) {
         </div>
       </div>
 
-      <div className="mt-6 flex items-center gap-3">
-        <a
-          href="mailto:smmrinal2009@gmail.com"
-          className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.18em] text-gold/80 hover:text-gold transition-colors"
-        >
-          {w.status === "Open" ? "Register interest" : "Get notified"}
-          <span>→</span>
-        </a>
-      </div>
+      {w.registerLink && (
+        <div className="mt-6 flex items-center gap-3">
+          <a
+            href={w.registerLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.18em] text-gold/80 hover:text-gold transition-colors"
+          >
+            Register interest
+            <span>→</span>
+          </a>
+        </div>
+      )}
     </article>
   );
 }
