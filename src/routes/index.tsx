@@ -57,8 +57,14 @@ function Hero() {
       <div className="absolute inset-0">
         {/* Phase 0: all nodes appear equal — wolves are hidden, mystery intact */}
         <WolfNetwork phase={0} />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,transparent_30%,var(--background)_85%)]" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, var(--background) 0%, var(--background) 38%, transparent 58%, transparent 78%, var(--background) 100%)",
+          }}
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_46%,transparent_30%,var(--background)_85%)]" />
       </div>
 
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">

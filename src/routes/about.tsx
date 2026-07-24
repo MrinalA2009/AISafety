@@ -48,31 +48,31 @@ const RESEARCH_CARDS = [
 
 const MILESTONES = [
   {
-    year: "2022",
+    year: "2025",
     tag: "Origins",
     title: "Began AI Safety Research",
-    desc: "Started exploring the intersection of language models, game theory, and deception. The central question: can we measure trustworthiness in AI systems the same way we measure capability? This led to a year of reading, prototyping, and framing what would become WOLF.",
+    desc: "Started exploring the intersection of language models, game theory, and deception. The central question: can we measure trustworthiness in AI systems the same way we measure capability? This led to a period of reading, prototyping, and framing what would become WOLF.",
   },
   {
-    year: "2023",
+    year: "2025",
     tag: "Research",
     title: "Development of WOLF",
     desc: "Designed and built WOLF, a multi-agent evaluation framework built around the social deduction game Werewolf. Over 100 experimental runs with 8 AI agents each, producing 7,320 measurable statements across structured night-day cycles, debate turns, and voting rounds.",
   },
   {
-    year: "Dec 2024",
+    year: "2025",
     tag: "Recognition",
     title: "NeurIPS Spotlight",
-    desc: "WOLF research was spotlighted at NeurIPS 2024 in Vancouver, reaching an audience of 400+ researchers, educators, and industry professionals. Key finding: AI agents produced deceptive statements in 31% of strategic opportunities, with peer detection reaching 71 to 73% precision.",
+    desc: "WOLF research was spotlighted at NeurIPS 2025 in San Diego, reaching an audience of 400+ researchers, educators, and industry professionals. Key finding: AI agents produced deceptive statements in 31% of strategic opportunities, with peer detection reaching 71 to 73% precision.",
   },
   {
-    year: "2025",
+    year: "2026",
     tag: "Education",
     title: "Community AI Literacy Workshops",
     desc: "Launched a series of AI literacy and safety workshops for libraries, schools, senior centers, and community organizations. The goal: make AI safety research accessible to everyone, not just researchers.",
   },
   {
-    year: "2025+",
+    year: "2026+",
     tag: "Next",
     title: "Interpretability and Safeguards",
     desc: "Expanding into representation analysis, mechanistic interpretability, and AI safeguards. The next goal is not just observing AI behavior from the outside, but understanding why it happens from the inside, and building tools that help researchers and the public see it.",
@@ -80,7 +80,7 @@ const MILESTONES = [
 ];
 
 const ACHIEVEMENTS = [
-  { icon: "◉", title: "NeurIPS Spotlight Research", desc: "Research on AI deception and trust spotlighted at NeurIPS 2024, Vancouver.", accent: true },
+  { icon: "◉", title: "NeurIPS Spotlight Research", desc: "Research on AI deception and trust spotlighted at NeurIPS 2025, San Diego.", accent: true },
   { icon: "◈", title: "AACL-IJCNLP Research", desc: "Published research at the Asia-Pacific Chapter of the Association for Computational Linguistics.", accent: false },
   { icon: "△", title: "SAT Score 1560", desc: "Near-perfect score, 98th percentile nationally.", accent: false },
   { icon: "◇", title: "AIME Qualifier", desc: "Qualified for the American Invitational Mathematics Examination.", accent: false },

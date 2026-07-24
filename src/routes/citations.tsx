@@ -6,9 +6,16 @@ export const Route = createFileRoute("/citations")({
   head: () => ({
     meta: [
       { title: "Citations — WOLF" },
-      { name: "description", content: "Papers citing WOLF (arXiv 2512.09187) — research building on WOLF's framework for studying deception, trust, and social reasoning in LLMs." },
+      {
+        name: "description",
+        content:
+          "Papers citing WOLF (arXiv 2512.09187) — research building on WOLF's framework for studying deception, trust, social reasoning, and hidden-information behavior in LLMs.",
+      },
       { property: "og:title", content: "WOLF Citations" },
-      { property: "og:description", content: "6 papers citing WOLF — arXiv 2512.09187." },
+      {
+        property: "og:description",
+        content: "11 papers citing WOLF — arXiv 2512.09187.",
+      },
     ],
   }),
   component: Citations,
@@ -17,63 +24,122 @@ export const Route = createFileRoute("/citations")({
 const PAPERS = [
   {
     n: "01",
-    title: "Multicultural Spyfall: Assessing LLMs through Dynamic Multilingual Social Deduction Game",
-    authors: "Haryo Akbarianto Wibowo, Alaa Elsetohy, Qinrong Cui, Alham Fikri Aji",
+    title:
+      "Multicultural Spyfall: Assessing LLMs through Dynamic Multilingual Social Deduction Game",
+    authors:
+      "Haryo Akbarianto Wibowo, Alaa Elsetohy, Qinrong Cui, Alham Fikri Aji",
     venue: "arXiv · January 2026",
     href: "https://arxiv.org/abs/2601.09017",
   },
   {
     n: "02",
-    title: "Can LLMs deliberate? Benchmarking Collective Reasoning for Democratic AI Applications",
+    title:
+      "Can LLMs deliberate? Benchmarking Collective Reasoning for Democratic AI Applications",
     authors: "M. Flechtner",
     venue: "Trustworthy AI for Good Workshop @ ICML · 2025",
     href: "https://openreview.net/forum?id=nw6d3107YU",
   },
   {
     n: "03",
-    title: "From Hallucination to Scheming: A Unified Taxonomy and Benchmark Analysis for LLM Deception",
-    authors: "Jerick Shi, Terry Jingcheng Zhang, Zhijing Jin, Vincent Conitzer",
+    title:
+      "From Sycophancy to Deception: A Unified Taxonomy for LLM Spontaneous Misalignment",
+    authors:
+      "Jerick Shi, Terry Jingcheng Zhang, Zhijing Jin, Vincent Conitzer",
     venue: "arXiv · April 2026",
     href: "https://arxiv.org/abs/2604.04788",
   },
   {
     n: "04",
-    title: "One Model, All Roles: Multi-Turn, Multi-Agent Self-Play Reinforcement Learning for Conversational Social Intelligence",
-    authors: "Bowen Jiang, Taiwei Shi, Ryo Kamoi, Yuan Yuan, C. J. Taylor, Longqi Yang, Pei Zhou, Sihao Chen",
+    title:
+      "One Model, All Roles: Multi-Turn, Multi-Agent Self-Play Reinforcement Learning for Conversational Social Intelligence",
+    authors:
+      "Bowen Jiang, Taiwei Shi, Ryo Kamoi, Yuan Yuan, Camillo J. Taylor, Longqi Yang, Pei Zhou, Sihao Chen",
     venue: "arXiv · February 2026",
     href: "https://arxiv.org/abs/2602.03109",
   },
   {
     n: "05",
-    title: "Towards Generalist Game Players: An Investigation of Foundation Models in the Game Multiverse",
-    authors: "Kuan Zhang, Dong Liu, Qiyue Zhao, Tianyu Xin, Yuejiao Su, Haisheng Wang, et al.",
+    title:
+      "Towards Generalist Game Players: An Investigation of Foundation Models in the Game Multiverse",
+    authors:
+      "Kuan Zhang, Dongchen Liu, Qiyue Zhao, Tianyu Xin, Yue Su, Haisheng Wang, Han Yin, Hongbo Ma, Peize Li, Tianjun Gu, Xiangnan Wu, Xinran Zhang, Yongxuan Li, Zirong Chen, Yiming Li",
     venue: "arXiv · May 2026",
     href: "https://arxiv.org/abs/2605.09965",
   },
   {
     n: "06",
-    title: "Cheap Talk, Empty Promise: Frontier LLMs easily break public promises for self-interest",
-    authors: "Jerick Shi, Terry Jingcheng Zhang, Zhijing Jin, Vincent Conitzer",
+    title:
+      "Cheap Talk, Empty Promise: Frontier LLMs Easily Break Public Promises for Self-Interest",
+    authors:
+      "Jerick Shi, Terry Jingcheng Zhang, Zhijing Jin, Vincent Conitzer",
     venue: "arXiv · April 2026",
     href: "https://arxiv.org/abs/2604.04782",
   },
+  {
+    n: "07",
+    title:
+      "Triadic Werewolf: A Jester Role for Multi-Hop Theory of Mind in LLMs",
+    authors: "Avni Mittal",
+    venue: "arXiv · June 2026",
+    href: "https://arxiv.org/abs/2606.27909",
+  },
+  {
+    n: "08",
+    title:
+      "When Agents Lie: Premeditation, Persistence, and Exploitation in Repeated Games",
+    authors:
+      "Jerick Shi, Terry Jingcheng Zhang, Bernhard Schölkopf, Vincent Conitzer, Zhijing Jin",
+    venue: "arXiv · July 2026",
+    href: "https://arxiv.org/abs/2607.05132",
+  },
+  {
+    n: "09",
+    title:
+      "Auditing Belief-Conditioned LLM Agents in Hidden-Information Social Deduction Games",
+    authors: "Yuan Gao, Jiangyi Yang, Yao Zhao, Yichi Zhang",
+    venue: "arXiv · July 2026",
+    href: "https://arxiv.org/abs/2607.10814",
+  },
+  {
+    n: "10",
+    title:
+      "MafiaScope: Non-Invasive, Time-Resolved Belief Probing for LLM Agents in Social Deduction Games",
+    authors: "Ilia Karpov",
+    venue: "arXiv · July 2026",
+    href: "https://arxiv.org/abs/2607.10645",
+  },
+  {
+    n: "11",
+    title:
+      "StarDojo: Benchmarking Open-Ended Behaviors of Agentic Multimodal LLMs in Production-Living Simulations with Stardew Valley",
+    authors:
+      "Weihao Tan, Changjiu Jiang, Yu Duan, Mingcong Lei, Jiageng Li, Yitian Hong, Xinrun Wang, Bo An",
+    venue: "arXiv · July 2025",
+    href: "https://arxiv.org/abs/2507.07445",
+  },
 ];
+
+const CITATION_COUNT = PAPERS.length;
 
 function Citations() {
   return (
     <div>
       <PageHeader
         section="Citations"
-
-        title={<>Research building on <span className="text-foreground/55">WOLF's framework.</span></>}
-        description="These papers cite WOLF (arXiv 2512.09187), extending its framework for studying deception, trust, and social reasoning in large language models across new settings and methodologies."
+        title={
+          <>
+            Research building on{" "}
+            <span className="text-foreground/55">WOLF&apos;s framework.</span>
+          </>
+        }
+        description={`These ${CITATION_COUNT} papers cite WOLF (arXiv 2512.09187), extending its framework for studying deception, trust, social reasoning, hidden beliefs, and agent behavior in large language models across new settings and methodologies.`}
       />
 
       <section className="mx-auto max-w-7xl px-6 mt-8 pb-32">
         <Reveal delay={100}>
           <div className="mb-10 inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 font-mono text-[11px] tracking-[0.2em] text-muted-foreground/70">
             <span className="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_6px_var(--gold)]" />
-            Citing WOLF · arXiv 2512.09187
+            {CITATION_COUNT} Papers Citing WOLF · arXiv 2512.09187
           </div>
         </Reveal>
 
@@ -89,7 +155,9 @@ function Citations() {
                 <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-electric/8 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                 <div className="flex items-start justify-between gap-4">
-                  <span className="font-mono text-3xl text-gold/70">{p.n}</span>
+                  <span className="font-mono text-3xl text-gold/70">
+                    {p.n}
+                  </span>
                   <span className="mt-1 text-muted-foreground/40 transition-colors group-hover:text-gold">
                     ↗
                   </span>
@@ -115,12 +183,18 @@ function Citations() {
         <Reveal delay={600}>
           <div className="mt-16 glass-strong rounded-3xl p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <div className="flex-1">
-              <div className="font-mono text-[10px] tracking-[0.3em] text-gold/75 mb-2">ORIGINAL PAPER</div>
+              <div className="font-mono text-[10px] tracking-[0.3em] text-gold/75 mb-2">
+                ORIGINAL PAPER
+              </div>
               <p className="font-display text-lg tracking-tight">
-                WOLF: Werewolf-based Observations for LLM Deception and Falsehoods
+                WOLF: Werewolf-based Observations for LLM Deception and
+                Falsehoods
               </p>
-              <p className="mt-1 text-sm text-muted-foreground">Mrinal Agarwal · arXiv 2512.09187</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Mrinal Agarwal · arXiv 2512.09187
+              </p>
             </div>
+
             <a
               href="https://arxiv.org/abs/2512.09187"
               target="_blank"

@@ -743,7 +743,7 @@ function ExperiencePage() {
                 </p>
                 <button onClick={play}
                   className="inline-flex items-center gap-2.5 rounded-full bg-gold text-background px-7 py-3 text-sm font-medium btn-magnetic hover:shadow-[0_20px_60px_-15px_var(--gold)] transition-shadow">
-                  ▶ Begin Replay
+                  ▶ Play
                 </button>
                 <div className="mt-5 flex items-center justify-center gap-5 font-mono text-[9px] tracking-[0.22em] text-muted-foreground/35 uppercase">
                   <span>Click agents to inspect</span>
