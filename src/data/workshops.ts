@@ -57,7 +57,7 @@ export type Workshop = {
   time: string;
   location: string;
   desc: string;
-  status: "Open" | "Coming Soon";
+  status: "Open" | "Coming Soon" | "Past";
   registerLink?: string;
   format: "Online" | "In-Person" | "Hybrid";
   audience?: string;
@@ -66,70 +66,97 @@ export type Workshop = {
   slidesUrl?: string;
 };
 
+// EAF Student Initiated Event: AI Safety Workshop Series
+// Hosted by Emerald High School Academic Foundation. Free and open to everyone,
+// no technical background required. Saturdays, 11:00 AM to 12:00 PM.
+export const SERIES_TITLE = "EAF Student Initiated Event: AI Safety Workshop Series";
+export const SERIES_HOST = "Emerald High School Academic Foundation";
+export const REGISTER_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLScDoe32Gx_1i8UfireFBHfXzx65aStrR25ztIi13QKZUtsS_g/viewform?usp=dialog";
+
 export const UPCOMING: Workshop[] = [
   {
-    slug: "can-you-trust-ai",
-    title: "Can You Trust AI?",
-    date: "Jul 11, 2025",
-    time: "11:00 AM",
+    slug: "ai-driven-social-engineering",
+    title: "AI-Driven Social Engineering",
+    date: "Sep 12, 2026",
+    time: "11:00 AM to 12:00 PM",
     location: "Online",
     format: "Online",
-    audience: "Students, educators, and curious community members",
-    desc: "An audience-participatory session exploring how language models produce misleading information and how to spot it in the wild.",
+    audience: "Students, educators, and community members",
+    desc: "How attackers use AI to make phishing, impersonation, and manipulation faster and more convincing, and what everyday users can do to recognize it.",
     status: "Open",
-    registerLink: "https://docs.google.com/forms/d/e/1FAIpQLScDoe32Gx_1i8UfireFBHfXzx65aStrR25ztIi13QKZUtsS_g/viewform?usp=dialog",
+    registerLink: REGISTER_URL,
     learningOutcomes: [
-      "How language models generate answers",
-      "Why fluent output isn't the same as correct output",
-      "How to spot misleading AI responses in real time",
+      "How generative AI lowers the cost of convincing scams",
+      "Signals that a message or voice may be AI-generated",
+      "Practical habits for verifying identity and requests",
     ],
   },
   {
-    slug: "understanding-ai-hallucinations",
-    title: "Understanding AI Hallucinations",
-    date: "TBD",
-    time: "TBD",
+    slug: "prompt-injection-and-cyber-vulnerabilities",
+    title: "Prompt Injection & Cyber Vulnerabilities",
+    date: "Oct 10, 2026",
+    time: "11:00 AM to 12:00 PM",
+    location: "Online",
+    format: "Online",
+    audience: "Students, developers, and curious community members",
+    desc: "A hands-on look at how AI systems get manipulated through their inputs, why prompt injection is hard to fully fix, and what it means for tools built on top of language models.",
+    status: "Open",
+    registerLink: REGISTER_URL,
+    learningOutcomes: [
+      "What prompt injection is and why it works",
+      "How AI features in real products expand the attack surface",
+      "Questions to ask before trusting an AI-powered tool",
+    ],
+  },
+  {
+    slug: "job-market-evolution",
+    title: "Job Market Evolution",
+    date: "Nov 14, 2026",
+    time: "11:00 AM to 12:00 PM",
+    location: "Online",
+    format: "Online",
+    audience: "Students, job seekers, and educators",
+    desc: "A grounded discussion of how AI is changing which tasks get automated, which skills gain value, and how to think about career decisions without the hype.",
+    status: "Open",
+    registerLink: REGISTER_URL,
+    learningOutcomes: [
+      "Which kinds of work AI is and is not good at replacing",
+      "Skills that become more valuable alongside AI",
+      "How to reason about career risk under uncertainty",
+    ],
+  },
+  {
+    slug: "the-path-to-agi",
+    title: "The Path to AGI",
+    date: "Dec 12, 2026",
+    time: "11:00 AM to 12:00 PM",
     location: "Online",
     format: "Online",
     audience: "General public",
-    desc: "A close look at why AI systems confidently fabricate facts, citations, and events, and what that means for how we use them.",
+    desc: "What people actually mean by artificial general intelligence, where current systems fall short, and why researchers disagree about how close we are.",
     status: "Open",
+    registerLink: REGISTER_URL,
     learningOutcomes: [
-      "Why hallucinations happen",
-      "How fabricated citations are constructed",
-      "What to check before trusting an AI-generated fact",
+      "Different definitions of AGI and why they matter",
+      "Capabilities today's models still lack",
+      "How to read AGI claims and predictions critically",
     ],
   },
   {
-    slug: "spotting-misleading-ai",
-    title: "Spotting Misleading AI",
-    date: "TBD",
-    time: "TBD",
+    slug: "prompt-engineering",
+    title: "Prompt Engineering",
+    date: "Aug 30, 2026",
+    time: "11:00 AM to 12:00 PM",
     location: "Online",
     format: "Online",
-    audience: "Students and professionals",
-    desc: "Practical skills for identifying AI-generated misinformation, evaluating sources, and verifying claims before you rely on them.",
-    status: "Coming Soon",
+    audience: "Students, educators, and community members",
+    desc: "The habits that make AI answers more reliable: asking for reasoning, requesting sources, giving context, and checking output before you rely on it.",
+    status: "Past",
     learningOutcomes: [
-      "A practical fact-checking workflow for AI output",
-      "Common patterns in AI-generated misinformation",
-      "Tools and habits for verifying claims quickly",
-    ],
-  },
-  {
-    slug: "ai-safety-for-everyday-users",
-    title: "AI Safety for Everyday Users",
-    date: "TBD",
-    time: "TBD",
-    location: "In-Person or Online",
-    format: "Hybrid",
-    audience: "Community members, libraries, senior centers",
-    desc: "A non-technical introduction to AI safety research and what it means for how we interact with AI systems in daily life.",
-    status: "Coming Soon",
-    learningOutcomes: [
-      "What AI safety research actually studies",
-      "How safety findings translate into everyday habits",
-      "Where to go for trustworthy information about AI",
+      "How phrasing changes the reliability of an answer",
+      "Requesting reasoning and sources you can check",
+      "A simple framework for how much to trust a response",
     ],
   },
 ];
