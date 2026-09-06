@@ -16,7 +16,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
 
 const ORIGIN = "https://mrinalA2009.github.io";
-const BASE   = "/WolfExplained";
+const BASE   = "/AISafety";
 
 // Each route is rendered as BASE + route + "/"  (TanStack Start requires trailing slash)
 const ROUTES = ["/", "/research", "/experience", "/workshops", "/about", "/citations"];
