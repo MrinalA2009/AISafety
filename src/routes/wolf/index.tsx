@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { WolfNetwork } from "../components/WolfNetwork";
-import { MagneticButton } from "../components/MagneticButton";
-import { Reveal } from "../components/Reveal";
+import { WolfNetwork } from "../../components/wolf/WolfNetwork";
+import { MagneticButton } from "../../components/wolf/MagneticButton";
+import { Reveal } from "../../components/Reveal";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/wolf/")({
   head: () => ({
     meta: [
       { title: "WOLF — Understanding Deception in Artificial Intelligence" },
@@ -88,7 +88,7 @@ function Hero() {
 
         <Reveal delay={380}>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <MagneticButton href="/experience" variant="primary">
+            <MagneticButton href="/wolf/experience" variant="primary">
               Experience WOLF
               <span className="opacity-75">→</span>
             </MagneticButton>
@@ -101,7 +101,7 @@ function Hero() {
               Read the paper
               <span className="opacity-75">↗</span>
             </MagneticButton>
-            <MagneticButton href="/research" variant="ghost">
+            <MagneticButton href="/wolf/research" variant="ghost">
               Understand the research
             </MagneticButton>
           </div>
@@ -180,7 +180,7 @@ function ScrollStory() {
                 100 runs. 7,320 statements. 8 agents per game. Can LLMs deceive — and be caught?
               </p>
               <div className="mt-10">
-                <MagneticButton href="/research" variant="primary">
+                <MagneticButton href="/wolf/research" variant="primary">
                   See what we found
                 </MagneticButton>
               </div>
@@ -283,7 +283,7 @@ function CtaSection() {
             Watch suspicion accumulate across rounds.
           </p>
           <div className="mt-9">
-            <MagneticButton href="/experience" variant="primary">
+            <MagneticButton href="/wolf/experience" variant="primary">
               Launch the simulator
               <span className="opacity-75">→</span>
             </MagneticButton>

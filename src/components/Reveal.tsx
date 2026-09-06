@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { prefersReducedMotion } from "../lib/animations";
 
 export function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(false);
+  const [shown, setShown] = useState(prefersReducedMotion());
   useEffect(() => {
+    if (prefersReducedMotion()) return;
     const el = ref.current; if (!el) return;
     const io = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && setShown(true)),

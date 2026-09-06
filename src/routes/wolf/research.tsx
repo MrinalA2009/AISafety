@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Reveal } from "../components/Reveal";
-import { PageHeader } from "../components/PageHeader";
+import { Reveal } from "../../components/Reveal";
+import { PageHeader } from "../../components/wolf/PageHeader";
+import { ROLES } from "../../data/wolfResearch";
 
-export const Route = createFileRoute("/research")({
+export const Route = createFileRoute("/wolf/research")({
   head: () => ({
     meta: [
       { title: "Research — WOLF" },
@@ -13,14 +14,6 @@ export const Route = createFileRoute("/research")({
   }),
   component: Research,
 });
-
-// Suspicion scores from paper (arXiv 2512.09187) — average suspicion each role received from peers
-const ROLES = [
-  { name: "Doctor", suspicion: 61 },
-  { name: "Seer", suspicion: 55 },
-  { name: "Werewolf", suspicion: 53 },
-  { name: "Villager", suspicion: 48 },
-];
 
 function Research() {
   const max = Math.max(...ROLES.map(r => r.suspicion));

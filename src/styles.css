@@ -39,14 +39,79 @@
   --color-gold-soft: var(--gold-soft);
   --color-electric: var(--electric);
   --color-electric-soft: var(--electric-soft);
+  --color-warm: var(--warm);
+  --color-soft-bg: var(--soft-bg);
 
-  --font-display: "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter", "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: var(--font-display-value);
+  --font-sans: var(--font-sans-value);
+  --font-mono: var(--font-mono-value);
 }
 
 :root {
   --radius: 0.875rem;
+
+  /* Main site — clean, simple, blue-accented palette, no gradients */
+  --font-display-value: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans-value: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono-value: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --background: oklch(1 0 0);                   /* pure white */
+  --foreground: oklch(0.22 0.02 260);           /* near-slate ink */
+  --surface: oklch(1 0 0);                      /* card white */
+  --surface-2: oklch(0.975 0.003 260);          /* faint neutral gray */
+
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface);
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(0.5 0.16 258);               /* clean blue */
+  --primary-foreground: oklch(0.99 0.003 260);
+  --secondary: oklch(0.95 0.004 260);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.96 0.003 260);
+  --muted-foreground: oklch(0.48 0.015 260);
+  --accent: oklch(0.5 0.16 258);
+  --accent-foreground: oklch(0.99 0.003 260);
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.99 0.003 260);
+
+  --border: oklch(0.22 0.02 260 / 9%);
+  --input: oklch(0.22 0.02 260 / 9%);
+  --ring: oklch(0.5 0.16 258 / 45%);
+
+  /* WOLF's gold/electric accents kept defined at root as safe fallbacks —
+     the branded values live in .dark, these are muted light-theme stand-ins */
+  --gold: oklch(0.5 0.16 258);
+  --gold-soft: oklch(0.5 0.16 258 / 14%);
+  --electric: oklch(0.5 0.16 258);
+  --electric-soft: oklch(0.5 0.16 258 / 14%);
+
+  --warm: var(--primary);
+  --soft-bg: var(--surface-2);
+
+  --chart-1: var(--primary);
+  --chart-2: var(--accent);
+  --chart-3: oklch(0.6 0.12 180);
+  --chart-4: oklch(0.55 0.16 320);
+  --chart-5: oklch(0.7 0.12 90);
+
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--surface-2);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+.dark {
+  color-scheme: dark;
+
+  /* WOLF microsite — preserved dark/glass/gold research-lab palette */
+  --font-display-value: "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans-value: "Inter", "Geist", ui-sans-serif, system-ui, sans-serif;
 
   --background: oklch(0.13 0.012 255);          /* #05070B */
   --foreground: oklch(0.985 0.003 247);         /* #F8FAFC */
@@ -94,8 +159,6 @@
   --sidebar-ring: var(--ring);
 }
 
-.dark { color-scheme: dark; }
-
 @layer base {
   html, body {
     background-color: var(--color-background);
@@ -109,7 +172,7 @@
     background: color-mix(in oklab, var(--gold) 40%, transparent);
     color: var(--foreground);
   }
-  body {
+  .dark body {
     background-image:
       radial-gradient(1200px 800px at 85% -20%, color-mix(in oklab, var(--electric) 5%, transparent), transparent 60%),
       radial-gradient(900px 600px at -10% 110%, color-mix(in oklab, var(--gold) 4%, transparent), transparent 60%);

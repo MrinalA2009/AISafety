@@ -9,27 +9,33 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WorkshopsRouteImport } from './routes/workshops'
+import { Route as WolfRouteImport } from './routes/wolf'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ResearchRouteImport } from './routes/research'
 import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as CitationsRouteImport } from './routes/citations'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as MainRouteImport } from './routes/_main'
+import { Route as WolfIndexRouteImport } from './routes/wolf/index'
+import { Route as MainIndexRouteImport } from './routes/_main/index'
+import { Route as WolfResearchRouteImport } from './routes/wolf/research'
+import { Route as WolfExperienceRouteImport } from './routes/wolf/experience'
+import { Route as WolfCitationsRouteImport } from './routes/wolf/citations'
+import { Route as MainResourcesRouteImport } from './routes/_main/resources'
+import { Route as MainResearchRouteImport } from './routes/_main/research'
+import { Route as MainContactRouteImport } from './routes/_main/contact'
+import { Route as MainAboutRouteImport } from './routes/_main/about'
+import { Route as MainWorkshopsIndexRouteImport } from './routes/_main/workshops/index'
+import { Route as MainBlogIndexRouteImport } from './routes/_main/blog/index'
+import { Route as MainWorkshopsSlugRouteImport } from './routes/_main/workshops/$slug'
+import { Route as MainBlogSlugRouteImport } from './routes/_main/blog/$slug'
 
-const WorkshopsRoute = WorkshopsRouteImport.update({
-  id: '/workshops',
-  path: '/workshops',
+const WolfRoute = WolfRouteImport.update({
+  id: '/wolf',
+  path: '/wolf',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ResearchRoute = ResearchRouteImport.update({
-  id: '/research',
-  path: '/research',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExperienceRoute = ExperienceRouteImport.update({
@@ -42,92 +48,209 @@ const CitationsRoute = CitationsRouteImport.update({
   path: '/citations',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+const MainRoute = MainRouteImport.update({
+  id: '/_main',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
+const WolfIndexRoute = WolfIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => WolfRoute,
+} as any)
+const MainIndexRoute = MainIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => MainRoute,
+} as any)
+const WolfResearchRoute = WolfResearchRouteImport.update({
+  id: '/research',
+  path: '/research',
+  getParentRoute: () => WolfRoute,
+} as any)
+const WolfExperienceRoute = WolfExperienceRouteImport.update({
+  id: '/experience',
+  path: '/experience',
+  getParentRoute: () => WolfRoute,
+} as any)
+const WolfCitationsRoute = WolfCitationsRouteImport.update({
+  id: '/citations',
+  path: '/citations',
+  getParentRoute: () => WolfRoute,
+} as any)
+const MainResourcesRoute = MainResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainResearchRoute = MainResearchRouteImport.update({
+  id: '/research',
+  path: '/research',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainContactRoute = MainContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainAboutRoute = MainAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainWorkshopsIndexRoute = MainWorkshopsIndexRouteImport.update({
+  id: '/workshops/',
+  path: '/workshops/',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainBlogIndexRoute = MainBlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainWorkshopsSlugRoute = MainWorkshopsSlugRouteImport.update({
+  id: '/workshops/$slug',
+  path: '/workshops/$slug',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainBlogSlugRoute = MainBlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => MainRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/': typeof MainIndexRoute
   '/citations': typeof CitationsRoute
   '/experience': typeof ExperienceRoute
-  '/research': typeof ResearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/workshops': typeof WorkshopsRoute
+  '/wolf': typeof WolfRouteWithChildren
+  '/about': typeof MainAboutRoute
+  '/contact': typeof MainContactRoute
+  '/research': typeof MainResearchRoute
+  '/resources': typeof MainResourcesRoute
+  '/wolf/citations': typeof WolfCitationsRoute
+  '/wolf/experience': typeof WolfExperienceRoute
+  '/wolf/research': typeof WolfResearchRoute
+  '/wolf/': typeof WolfIndexRoute
+  '/blog/$slug': typeof MainBlogSlugRoute
+  '/workshops/$slug': typeof MainWorkshopsSlugRoute
+  '/blog/': typeof MainBlogIndexRoute
+  '/workshops/': typeof MainWorkshopsIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/citations': typeof CitationsRoute
   '/experience': typeof ExperienceRoute
-  '/research': typeof ResearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/workshops': typeof WorkshopsRoute
+  '/about': typeof MainAboutRoute
+  '/contact': typeof MainContactRoute
+  '/research': typeof MainResearchRoute
+  '/resources': typeof MainResourcesRoute
+  '/wolf/citations': typeof WolfCitationsRoute
+  '/wolf/experience': typeof WolfExperienceRoute
+  '/wolf/research': typeof WolfResearchRoute
+  '/': typeof MainIndexRoute
+  '/wolf': typeof WolfIndexRoute
+  '/blog/$slug': typeof MainBlogSlugRoute
+  '/workshops/$slug': typeof MainWorkshopsSlugRoute
+  '/blog': typeof MainBlogIndexRoute
+  '/workshops': typeof MainWorkshopsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/_main': typeof MainRouteWithChildren
   '/citations': typeof CitationsRoute
   '/experience': typeof ExperienceRoute
-  '/research': typeof ResearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/workshops': typeof WorkshopsRoute
+  '/wolf': typeof WolfRouteWithChildren
+  '/_main/about': typeof MainAboutRoute
+  '/_main/contact': typeof MainContactRoute
+  '/_main/research': typeof MainResearchRoute
+  '/_main/resources': typeof MainResourcesRoute
+  '/wolf/citations': typeof WolfCitationsRoute
+  '/wolf/experience': typeof WolfExperienceRoute
+  '/wolf/research': typeof WolfResearchRoute
+  '/_main/': typeof MainIndexRoute
+  '/wolf/': typeof WolfIndexRoute
+  '/_main/blog/$slug': typeof MainBlogSlugRoute
+  '/_main/workshops/$slug': typeof MainWorkshopsSlugRoute
+  '/_main/blog/': typeof MainBlogIndexRoute
+  '/_main/workshops/': typeof MainWorkshopsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/about'
     | '/citations'
     | '/experience'
-    | '/research'
     | '/sitemap.xml'
-    | '/workshops'
+    | '/wolf'
+    | '/about'
+    | '/contact'
+    | '/research'
+    | '/resources'
+    | '/wolf/citations'
+    | '/wolf/experience'
+    | '/wolf/research'
+    | '/wolf/'
+    | '/blog/$slug'
+    | '/workshops/$slug'
+    | '/blog/'
+    | '/workshops/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | '/about'
     | '/citations'
     | '/experience'
-    | '/research'
     | '/sitemap.xml'
+    | '/about'
+    | '/contact'
+    | '/research'
+    | '/resources'
+    | '/wolf/citations'
+    | '/wolf/experience'
+    | '/wolf/research'
+    | '/'
+    | '/wolf'
+    | '/blog/$slug'
+    | '/workshops/$slug'
+    | '/blog'
     | '/workshops'
   id:
     | '__root__'
-    | '/'
-    | '/about'
+    | '/_main'
     | '/citations'
     | '/experience'
-    | '/research'
     | '/sitemap.xml'
-    | '/workshops'
+    | '/wolf'
+    | '/_main/about'
+    | '/_main/contact'
+    | '/_main/research'
+    | '/_main/resources'
+    | '/wolf/citations'
+    | '/wolf/experience'
+    | '/wolf/research'
+    | '/_main/'
+    | '/wolf/'
+    | '/_main/blog/$slug'
+    | '/_main/workshops/$slug'
+    | '/_main/blog/'
+    | '/_main/workshops/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
+  MainRoute: typeof MainRouteWithChildren
   CitationsRoute: typeof CitationsRoute
   ExperienceRoute: typeof ExperienceRoute
-  ResearchRoute: typeof ResearchRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  WorkshopsRoute: typeof WorkshopsRoute
+  WolfRoute: typeof WolfRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/workshops': {
-      id: '/workshops'
-      path: '/workshops'
-      fullPath: '/workshops'
-      preLoaderRoute: typeof WorkshopsRouteImport
+    '/wolf': {
+      id: '/wolf'
+      path: '/wolf'
+      fullPath: '/wolf'
+      preLoaderRoute: typeof WolfRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -135,13 +258,6 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/research': {
-      id: '/research'
-      path: '/research'
-      fullPath: '/research'
-      preLoaderRoute: typeof ResearchRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/experience': {
@@ -158,31 +274,155 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CitationsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
+    '/_main': {
+      id: '/_main'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof MainRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
+    '/wolf/': {
+      id: '/wolf/'
+      path: '/'
+      fullPath: '/wolf/'
+      preLoaderRoute: typeof WolfIndexRouteImport
+      parentRoute: typeof WolfRoute
+    }
+    '/_main/': {
+      id: '/_main/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof MainIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/wolf/research': {
+      id: '/wolf/research'
+      path: '/research'
+      fullPath: '/wolf/research'
+      preLoaderRoute: typeof WolfResearchRouteImport
+      parentRoute: typeof WolfRoute
+    }
+    '/wolf/experience': {
+      id: '/wolf/experience'
+      path: '/experience'
+      fullPath: '/wolf/experience'
+      preLoaderRoute: typeof WolfExperienceRouteImport
+      parentRoute: typeof WolfRoute
+    }
+    '/wolf/citations': {
+      id: '/wolf/citations'
+      path: '/citations'
+      fullPath: '/wolf/citations'
+      preLoaderRoute: typeof WolfCitationsRouteImport
+      parentRoute: typeof WolfRoute
+    }
+    '/_main/resources': {
+      id: '/_main/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof MainResourcesRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/research': {
+      id: '/_main/research'
+      path: '/research'
+      fullPath: '/research'
+      preLoaderRoute: typeof MainResearchRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/contact': {
+      id: '/_main/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof MainContactRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/about': {
+      id: '/_main/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof MainAboutRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/workshops/': {
+      id: '/_main/workshops/'
+      path: '/workshops'
+      fullPath: '/workshops/'
+      preLoaderRoute: typeof MainWorkshopsIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/blog/': {
+      id: '/_main/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof MainBlogIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/workshops/$slug': {
+      id: '/_main/workshops/$slug'
+      path: '/workshops/$slug'
+      fullPath: '/workshops/$slug'
+      preLoaderRoute: typeof MainWorkshopsSlugRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/blog/$slug': {
+      id: '/_main/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof MainBlogSlugRouteImport
+      parentRoute: typeof MainRoute
     }
   }
 }
 
+interface MainRouteChildren {
+  MainAboutRoute: typeof MainAboutRoute
+  MainContactRoute: typeof MainContactRoute
+  MainResearchRoute: typeof MainResearchRoute
+  MainResourcesRoute: typeof MainResourcesRoute
+  MainIndexRoute: typeof MainIndexRoute
+  MainBlogSlugRoute: typeof MainBlogSlugRoute
+  MainWorkshopsSlugRoute: typeof MainWorkshopsSlugRoute
+  MainBlogIndexRoute: typeof MainBlogIndexRoute
+  MainWorkshopsIndexRoute: typeof MainWorkshopsIndexRoute
+}
+
+const MainRouteChildren: MainRouteChildren = {
+  MainAboutRoute: MainAboutRoute,
+  MainContactRoute: MainContactRoute,
+  MainResearchRoute: MainResearchRoute,
+  MainResourcesRoute: MainResourcesRoute,
+  MainIndexRoute: MainIndexRoute,
+  MainBlogSlugRoute: MainBlogSlugRoute,
+  MainWorkshopsSlugRoute: MainWorkshopsSlugRoute,
+  MainBlogIndexRoute: MainBlogIndexRoute,
+  MainWorkshopsIndexRoute: MainWorkshopsIndexRoute,
+}
+
+const MainRouteWithChildren = MainRoute._addFileChildren(MainRouteChildren)
+
+interface WolfRouteChildren {
+  WolfCitationsRoute: typeof WolfCitationsRoute
+  WolfExperienceRoute: typeof WolfExperienceRoute
+  WolfResearchRoute: typeof WolfResearchRoute
+  WolfIndexRoute: typeof WolfIndexRoute
+}
+
+const WolfRouteChildren: WolfRouteChildren = {
+  WolfCitationsRoute: WolfCitationsRoute,
+  WolfExperienceRoute: WolfExperienceRoute,
+  WolfResearchRoute: WolfResearchRoute,
+  WolfIndexRoute: WolfIndexRoute,
+}
+
+const WolfRouteWithChildren = WolfRoute._addFileChildren(WolfRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
+  MainRoute: MainRouteWithChildren,
   CitationsRoute: CitationsRoute,
   ExperienceRoute: ExperienceRoute,
-  ResearchRoute: ResearchRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  WorkshopsRoute: WorkshopsRoute,
+  WolfRoute: WolfRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

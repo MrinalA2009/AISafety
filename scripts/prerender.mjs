@@ -19,7 +19,19 @@ const ORIGIN = "https://mrinalA2009.github.io";
 const BASE   = "/AISafety";
 
 // Each route is rendered as BASE + route + "/"  (TanStack Start requires trailing slash)
-const ROUTES = ["/", "/research", "/experience", "/workshops", "/about", "/citations"];
+const ROUTES = [
+  "/",
+  "/about",
+  "/research",
+  "/resources",
+  "/contact",
+  "/workshops",
+  "/blog",
+  "/wolf",
+  "/wolf/research",
+  "/wolf/experience",
+  "/wolf/citations",
+];
 
 console.log("⚙  Pre-rendering routes for GitHub Pages…\n");
 

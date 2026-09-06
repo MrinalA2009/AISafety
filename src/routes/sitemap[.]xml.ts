@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { UPCOMING } from "../data/workshops";
+import { BLOG_POSTS } from "../data/blogPosts";
 
 const BASE_URL = "";
 
@@ -11,11 +13,18 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
-          { path: "/research", changefreq: "monthly", priority: "0.9" },
-          { path: "/experience", changefreq: "monthly", priority: "0.9" },
-          { path: "/workshops", changefreq: "weekly", priority: "0.8" },
+          { path: "/workshops", changefreq: "weekly", priority: "0.9" },
+          ...UPCOMING.map((w) => ({ path: `/workshops/${w.slug}`, changefreq: "monthly", priority: "0.6" })),
+          { path: "/resources", changefreq: "weekly", priority: "0.7" },
+          { path: "/blog", changefreq: "weekly", priority: "0.7" },
+          ...BLOG_POSTS.map((p) => ({ path: `/blog/${p.slug}`, changefreq: "monthly", priority: "0.5" })),
           { path: "/about", changefreq: "monthly", priority: "0.6" },
-          { path: "/citations", changefreq: "monthly", priority: "0.7" },
+          { path: "/contact", changefreq: "yearly", priority: "0.4" },
+          { path: "/research", changefreq: "monthly", priority: "0.7" },
+          { path: "/wolf", changefreq: "monthly", priority: "0.9" },
+          { path: "/wolf/research", changefreq: "monthly", priority: "0.8" },
+          { path: "/wolf/experience", changefreq: "monthly", priority: "0.8" },
+          { path: "/wolf/citations", changefreq: "monthly", priority: "0.7" },
         ];
         const urls = entries.map(e =>
           `  <url>\n    <loc>${BASE_URL}${e.path}</loc>\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`
