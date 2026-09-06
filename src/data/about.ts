@@ -63,8 +63,6 @@ export const MILESTONES = [
 export const ACHIEVEMENTS = [
   { icon: "◉", title: "NeurIPS Spotlight Research", desc: "Research on AI deception and trust spotlighted at NeurIPS 2025, San Diego.", accent: true },
   { icon: "◈", title: "AACL-IJCNLP Research", desc: "Published research at the Asia-Pacific Chapter of the Association for Computational Linguistics.", accent: false },
-  { icon: "△", title: "SAT Score 1560", desc: "Near-perfect score, 98th percentile nationally.", accent: false },
-  { icon: "◇", title: "AIME Qualifier", desc: "Qualified for the American Invitational Mathematics Examination.", accent: false },
   { icon: "○", title: "Nationally Ranked Debater", desc: "Nationally ranked competitor in Public Forum Debate.", accent: false },
   { icon: "⬡", title: "Founder, MathSim", desc: "Founded MathSim, an educational mathematics simulation platform.", accent: false },
   { icon: "⊕", title: "Founder, DebateSim", desc: "Founded DebateSim, an AI-powered debate practice platform.", accent: false },
