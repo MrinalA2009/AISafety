@@ -1,5 +1,5 @@
 /**
- * useReplay — turns a pre-computed ReplayEvent[] into a live-feeling playback.
+ * useReplay - turns a pre-computed ReplayEvent[] into a live-feeling playback.
  *
  * Controls: play/pause/restart/prev/next/scrubTo(index)/setSpeed(0.5|1|2)
  *

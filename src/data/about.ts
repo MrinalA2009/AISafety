@@ -46,10 +46,11 @@ export const MILESTONES = [
     desc: "WOLF research was spotlighted at NeurIPS 2025 in San Diego, reaching an audience of 400+ researchers, educators, and industry professionals. Key finding: AI agents produced deceptive statements in 31% of strategic opportunities, with peer detection reaching 71 to 73% precision.",
   },
   {
-    year: "2026",
+    year: "2026 - Present",
     tag: "Education",
     title: "Community AI Literacy Workshops",
-    desc: "Launched a series of AI literacy and safety workshops for libraries, schools, senior centers, and community organizations. The goal: make AI safety research accessible to everyone, not just researchers.",
+    desc: "Currently running a series of AI literacy and safety workshops for libraries, schools, senior centers, and community organizations. The goal: make AI safety research accessible to everyone, not just researchers.",
+    current: true,
   },
   {
     year: "2026+",

@@ -1,5 +1,5 @@
 /**
- * Converts raw WOLF simulation events (WolfEvent[]) into ReplayEvent[] —
+ * Converts raw WOLF simulation events (WolfEvent[]) into ReplayEvent[] -
  * each with a fully computed GameSnapshot reflecting state at that moment.
  *
  * Key behaviours:
@@ -78,7 +78,7 @@ function buildDescription(ev: WolfEvent): string {
   const d = ev.details;
   switch (ev.event) {
     case "game_start":
-      return "Game begins — 8 players, 2 Werewolves hidden among villagers.";
+      return "Game begins - 8 players, 2 Werewolves hidden among villagers.";
     case "eliminate":
       return `Night: Wolves choose ${d.target as string} as their target.`;
     case "protect":
@@ -91,11 +91,11 @@ function buildDescription(ev: WolfEvent): string {
     case "check_winner_day":
       return (d.winner as string)
         ? `${d.winner as string} win the game!`
-        : `Game continues — Wolves: ${(d.wolves_alive as string[]).length}, Non-wolves: ${(d.non_wolves_alive as string[]).length}`;
+        : `Game continues - Wolves: ${(d.wolves_alive as string[]).length}, Non-wolves: ${(d.non_wolves_alive as string[]).length}`;
     case "debate":
       return `${ev.actor ?? "?"}: "${(d.dialogue as string)?.slice(0, 80)}…"`;
     case "deception_analysis":
-      return `Deception analysis — ${ev.actor ?? "?"}: ${
+      return `Deception analysis - ${ev.actor ?? "?"}: ${
         (d.self_analysis as Record<string,unknown>)?.is_deceptive ? "⚠ Deceptive" : "✓ Truthful"
       } (avg suspicion ${((d.average_suspicion as number) * 100).toFixed(0)}%)`;
     case "vote":
@@ -105,7 +105,7 @@ function buildDescription(ev: WolfEvent): string {
     case "game_end":
       return `${d.winner as string} win! ${(d.summary as string)?.slice(0, 80) ?? ""}`;
     default:
-      return `${ev.event} — ${JSON.stringify(d).slice(0, 60)}`;
+      return `${ev.event} - ${JSON.stringify(d).slice(0, 60)}`;
   }
 }
 

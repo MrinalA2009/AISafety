@@ -6,16 +6,16 @@ import { PAPERS, CITATION_COUNT } from "../../data/citations";
 export const Route = createFileRoute("/wolf/citations")({
   head: () => ({
     meta: [
-      { title: "Citations — WOLF" },
+      { title: "Citations - WOLF" },
       {
         name: "description",
         content:
-          "Papers citing WOLF (arXiv 2512.09187) — research building on WOLF's framework for studying deception, trust, social reasoning, and hidden-information behavior in LLMs.",
+          "Papers citing WOLF (arXiv 2512.09187) - research building on WOLF's framework for studying deception, trust, social reasoning, and hidden-information behavior in LLMs.",
       },
       { property: "og:title", content: "WOLF Citations" },
       {
         property: "og:description",
-        content: "11 papers citing WOLF — arXiv 2512.09187.",
+        content: "11 papers citing WOLF - arXiv 2512.09187.",
       },
     ],
   }),

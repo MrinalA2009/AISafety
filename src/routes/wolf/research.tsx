@@ -6,7 +6,7 @@ import { ROLES } from "../../data/wolfResearch";
 export const Route = createFileRoute("/wolf/research")({
   head: () => ({
     meta: [
-      { title: "Research — WOLF" },
+      { title: "Research - WOLF" },
       { name: "description", content: "An interactive walkthrough of the WOLF research paper: methodology, trust dynamics, and findings on AI deception." },
       { property: "og:title", content: "WOLF Research" },
       { property: "og:description", content: "Methodology, trust dynamics, and findings." },
@@ -24,7 +24,7 @@ function Research() {
         section="Research"
 
         title={<>What language models reveal <span className="text-foreground/55">when they're forced to lie.</span></>}
-        description="WOLF is a multi-agent benchmark built around the social deduction game Werewolf. Across 100 runs we recorded 7,320 statements — every utterance, vote, and inferred relationship — building a quantitative window into deception, persuasion, and social reasoning in LLMs."
+        description="WOLF is a multi-agent benchmark built around the social deduction game Werewolf. Across 100 runs we recorded 7,320 statements - every utterance, vote, and inferred relationship - building a quantitative window into deception, persuasion, and social reasoning in LLMs."
       />
 
       <section className="mx-auto max-w-7xl px-6">
@@ -49,8 +49,8 @@ function Research() {
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {[
             { n: "01", t: "Hidden roles", d: "Eight agents per game: 4 Villagers, 2 Werewolves, 1 Seer, 1 Doctor. Wolves know each other; no one else does." },
-            { n: "02", t: "Structured dialogue", d: "Night–day cycles alternate with debate phases using a bidding system. Avg. 3.4 nights, 16.1 debate turns, 2.6 voting rounds per run." },
-            { n: "03", t: "Deception taxonomy", d: "Every statement is labelled across four categories: omission, distortion, fabrication, and misdirection — enabling fine-grained analysis." },
+            { n: "02", t: "Structured dialogue", d: "Night-day cycles alternate with debate phases using a bidding system. Avg. 3.4 nights, 16.1 debate turns, 2.6 voting rounds per run." },
+            { n: "03", t: "Deception taxonomy", d: "Every statement is labelled across four categories: omission, distortion, fabrication, and misdirection - enabling fine-grained analysis." },
           ].map((s, i) => (
             <Reveal key={s.n} delay={i * 120}>
               <div className="glass relative h-full overflow-hidden rounded-3xl p-7 transition hover:-translate-y-1 hover:glow-electric">
@@ -71,8 +71,8 @@ function Research() {
             Average suspicion score by role.
           </h2>
           <p className="mt-3 max-w-xl text-muted-foreground">
-            How often each role was suspected of being a Werewolf — averaged across all 100 runs.
-            Detection reached 71–73% precision with ~52% overall accuracy.
+            How often each role was suspected of being a Werewolf - averaged across all 100 runs.
+            Detection reached 71-73% precision with ~52% overall accuracy.
           </p>
         </Reveal>
 
@@ -110,9 +110,9 @@ function Research() {
         </Reveal>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {[
-            { t: "Deception is sparse but strategic.", d: "Werewolves deployed deceptive statements in only 31% of turns — suggesting selective use over saturation." },
-            { t: "Peer detection is precise, not comprehensive.", d: "Agents achieved 71–73% precision in identifying Werewolves, but overall recall kept accuracy near 52%." },
-            { t: "Suspicion accumulates across rounds.", d: "Average suspicion toward Werewolves rose from ~52% to over 60% as games progressed — recall improves without compounding false-positive errors." },
+            { t: "Deception is sparse but strategic.", d: "Werewolves deployed deceptive statements in only 31% of turns - suggesting selective use over saturation." },
+            { t: "Peer detection is precise, not comprehensive.", d: "Agents achieved 71-73% precision in identifying Werewolves, but overall recall kept accuracy near 52%." },
+            { t: "Suspicion accumulates across rounds.", d: "Average suspicion toward Werewolves rose from ~52% to over 60% as games progressed - recall improves without compounding false-positive errors." },
             { t: "Wolves dominate despite the odds.", d: "Werewolves won 70% of games with just 2 of 8 agents, underscoring how structural information asymmetry amplifies deceptive advantage." },
           ].map((f, i) => (
             <Reveal key={f.t} delay={i * 100}>

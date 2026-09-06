@@ -7,9 +7,9 @@ import { RESEARCH_CARDS, MILESTONES, ACHIEVEMENTS } from "../../data/about";
 export const Route = createFileRoute("/_main/about")({
   head: () => ({
     meta: [
-      { title: "About — Ethos.AI" },
+      { title: "About - Ethos.AI" },
       { name: "description", content: "Mrinal Agarwal is an AI safety researcher studying deception, trust, and reasoning in AI systems, and building public AI literacy through workshops and education." },
-      { property: "og:title", content: "About — Ethos.AI" },
+      { property: "og:title", content: "About - Ethos.AI" },
       { property: "og:description", content: "Building safer and more trustworthy AI through research, education, and public engagement." },
     ],
   }),
@@ -213,9 +213,9 @@ function JourneySection() {
 }
 
 function TimelineItem({
-  year, tag, title, desc, isExpanded, onClick,
+  year, tag, title, desc, current, isExpanded, onClick,
 }: {
-  year: string; tag: string; title: string; desc: string;
+  year: string; tag: string; title: string; desc: string; current?: boolean;
   isExpanded: boolean; onClick: () => void;
 }) {
   return (
@@ -226,8 +226,11 @@ function TimelineItem({
       {/* Dot */}
       <div className="relative flex-shrink-0 pt-1">
         <div className={`h-[9px] w-[9px] rounded-full border-2 transition-all duration-300 ${
-          isExpanded ? "border-primary bg-primary shadow-[0_0_12px_var(--primary)]" : "border-black/15 bg-background group-hover:border-black/30"
+          current || isExpanded ? "border-primary bg-primary shadow-[0_0_12px_var(--primary)]" : "border-black/15 bg-background group-hover:border-black/30"
         }`} />
+        {current && (
+          <span className="absolute inset-0 h-[9px] w-[9px] rounded-full bg-primary animate-ping" />
+        )}
       </div>
 
       {/* Content */}
@@ -237,6 +240,11 @@ function TimelineItem({
           <span className={`font-mono text-[9px] tracking-[0.22em] uppercase border rounded-full px-2 py-0.5 transition-colors ${
             isExpanded ? "text-primary border-primary/30 bg-primary/8" : "text-muted-foreground/40 border-black/10"
           }`}>{tag}</span>
+          {current && (
+            <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-primary">
+              Now
+            </span>
+          )}
         </div>
         <h3 className={`font-display text-xl tracking-tight leading-snug transition-colors ${isExpanded ? "text-foreground" : "text-foreground/70 group-hover:text-foreground"}`}>
           {title}

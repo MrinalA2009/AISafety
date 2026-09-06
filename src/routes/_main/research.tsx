@@ -5,7 +5,7 @@ import { Button } from "../../components/main/Button";
 export const Route = createFileRoute("/_main/research")({
   head: () => ({
     meta: [
-      { title: "Research — Ethos.AI" },
+      { title: "Research - Ethos.AI" },
       { name: "description", content: "Research projects on AI safety and deception, featuring WOLF." },
     ],
   }),
@@ -21,7 +21,7 @@ function ResearchHub() {
           Research projects
         </h1>
         <p className="mt-5 max-w-xl text-muted-foreground leading-relaxed">
-          Research on AI safety, deception, and trust in multi-agent systems — starting with WOLF,
+          Research on AI safety, deception, and trust in multi-agent systems - starting with WOLF,
           with more projects to come.
         </p>
       </Reveal>

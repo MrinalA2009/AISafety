@@ -5,7 +5,7 @@ import { BLOG_POSTS } from "../../../data/blogPosts";
 export const Route = createFileRoute("/_main/blog/")({
   head: () => ({
     meta: [
-      { title: "Blog — Ethos.AI" },
+      { title: "Blog - Ethos.AI" },
       { name: "description", content: "Articles on AI safety, AI literacy, and workshop updates." },
     ],
   }),

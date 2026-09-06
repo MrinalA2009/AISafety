@@ -31,7 +31,7 @@ const AGENTS = [
   { role: "villager",px: 0.13, py: 0.43 },
 ] as const;
 
-// Sparse communication edges — ~12 edges creates a legible social graph
+// Sparse communication edges - ~12 edges creates a legible social graph
 const EDGES: readonly [number, number][] = [
   [0, 1], // wolf ↔ wolf (they know each other)
   [0, 7], // wolf 0 ↔ villager 4
@@ -78,7 +78,7 @@ function nodeVis(role: string, p: number) {
       glowA:  lerp(0.14, 0.48, t),
     };
   }
-  // villager — stays white, glow brightens slightly as network activates
+  // villager - stays white, glow brightens slightly as network activates
   return { color: W, radius: 4.0, glowR: lerp(10, 13, p / 4), glowA: lerp(0.11, 0.19, p / 4) };
 }
 
@@ -119,7 +119,7 @@ function edgeVis(fromRole: string, toRole: string, p: number) {
 }
 
 interface Props {
-  phase?: number;   // 0–4 continuous
+  phase?: number;   // 0-4 continuous
   className?: string;
 }
 

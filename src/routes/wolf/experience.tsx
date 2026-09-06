@@ -10,7 +10,7 @@ import type { PlayerState, ReplayEvent, GameSnapshot, ObserverAnalysis } from ".
 export const Route = createFileRoute("/wolf/experience")({
   head: () => ({
     meta: [
-      { title: "Experience WOLF — Simulation Replay" },
+      { title: "Experience WOLF - Simulation Replay" },
       { name: "description", content: "Replay an actual WOLF multi-agent simulation. Watch agents debate, deceive, and vote in real time." },
     ],
   }),
@@ -90,7 +90,7 @@ function AgentNode({ player, pos, mode, selected, onClick }: ANProps) {
       onClick={alive ? onClick : undefined}
       style={{ cursor: alive ? "pointer" : "default", opacity: alive ? 1 : 0.2, transition: "opacity 0.5s" }}
     >
-      {/* Speaking pulse ring — kept small so it never overlaps labels */}
+      {/* Speaking pulse ring - kept small so it never overlaps labels */}
       {speaking && alive && (
         <circle r={NODE_R + 3} fill="none" stroke="var(--gold)" strokeWidth={1} opacity={0}>
           <animate attributeName="r"       values={`${NODE_R+3};${NODE_R+13};${NODE_R+3}`} dur="2s" repeatCount="indefinite"/>
@@ -116,7 +116,7 @@ function AgentNode({ player, pos, mode, selected, onClick }: ANProps) {
         <circle r={NODE_R + 7} fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth={1}/>
       )}
 
-      {/* Node fill — glass look */}
+      {/* Node fill - glass look */}
       <circle
         r={NODE_R}
         fill={speaking && alive ? "var(--gold)" : "color-mix(in oklab, var(--surface-2) 88%, transparent)"}
@@ -135,7 +135,7 @@ function AgentNode({ player, pos, mode, selected, onClick }: ANProps) {
         {player.name[0]}
       </text>
 
-      {/* Name — placed outward from node along nx/ny so it never overlaps the arc or pulse */}
+      {/* Name - placed outward from node along nx/ny so it never overlaps the arc or pulse */}
       <text
         textAnchor={txAnchor}
         dominantBaseline="central"
@@ -148,7 +148,7 @@ function AgentNode({ player, pos, mode, selected, onClick }: ANProps) {
         {player.name}
       </text>
 
-      {/* Role (research only) — one step further out than the name */}
+      {/* Role (research only) - one step further out than the name */}
       {mode === "research" && alive && (
         <text
           textAnchor={txAnchor}
@@ -164,7 +164,7 @@ function AgentNode({ player, pos, mode, selected, onClick }: ANProps) {
         </text>
       )}
 
-      {/* Eliminated — subtle X */}
+      {/* Eliminated - subtle X */}
       {!alive && (
         <>
           <line x1={-7} y1={-7} x2={7} y2={7} stroke="#ef4444" strokeWidth={1.5} opacity={0.45}/>

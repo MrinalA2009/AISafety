@@ -10,7 +10,7 @@ export function WolfFooter() {
             <span className="font-display tracking-[0.2em] text-sm">WOLF</span>
           </div>
           <p className="mt-4 max-w-md text-sm text-muted-foreground leading-relaxed">
-            Werewolf-based Observations for LLM Deception and Falsehoods — a research platform
+            Werewolf-based Observations for LLM Deception and Falsehoods - a research platform
             for studying deception, trust, and social reasoning in artificial intelligence.
           </p>
           <p className="mt-6 text-xs text-muted-foreground/70">

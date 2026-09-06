@@ -12,7 +12,7 @@ export const Route = createFileRoute("/_main/workshops/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.title} — Ethos.AI` },
+          { title: `${loaderData.title} - Ethos.AI` },
           { name: "description", content: loaderData.desc },
         ]
       : [],

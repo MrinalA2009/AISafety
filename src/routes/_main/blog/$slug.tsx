@@ -11,7 +11,7 @@ export const Route = createFileRoute("/_main/blog/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.title} — Ethos.AI` },
+          { title: `${loaderData.title} - Ethos.AI` },
           { name: "description", content: loaderData.excerpt },
         ]
       : [],

@@ -7,9 +7,9 @@ import { LEARN_CARDS, AUDIENCES, UPCOMING, TAGS } from "../../../data/workshops"
 export const Route = createFileRoute("/_main/workshops/")({
   head: () => ({
     meta: [
-      { title: "AI Literacy & Safety Workshops — Ethos.AI" },
+      { title: "AI Literacy & Safety Workshops - Ethos.AI" },
       { name: "description", content: "Workshops on AI deception, hallucinations, and trust led by AI safety researcher Mrinal Agarwal. Designed for libraries, schools, and community organizations." },
-      { property: "og:title", content: "AI Literacy & Safety Workshops — Ethos.AI" },
+      { property: "og:title", content: "AI Literacy & Safety Workshops - Ethos.AI" },
       { property: "og:description", content: "Making AI safety research understandable, practical, and useful for everyday communities." },
     ],
   }),

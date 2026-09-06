@@ -9,7 +9,7 @@ export function MainFooter() {
             <span className="font-display tracking-tight text-base font-semibold">Ethos.AI</span>
           </div>
           <p className="mt-4 max-w-md text-sm text-muted-foreground leading-relaxed">
-            AI safety and literacy education — workshops, research, and public resources
+            AI safety and literacy education - workshops, research, and public resources
             for understanding and using AI responsibly.
           </p>
         </div>

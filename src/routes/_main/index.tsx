@@ -9,9 +9,9 @@ import { IMPACT_STATS } from "../../data/impactStats";
 export const Route = createFileRoute("/_main/")({
   head: () => ({
     meta: [
-      { title: "Ethos.AI — AI Literacy & Safety Workshops" },
-      { name: "description", content: "Workshops, resources, and research on AI safety and literacy — helping students, educators, and communities use AI responsibly." },
-      { property: "og:title", content: "Ethos.AI — AI Literacy & Safety Workshops" },
+      { title: "Ethos.AI - AI Literacy & Safety Workshops" },
+      { name: "description", content: "Workshops, resources, and research on AI safety and literacy - helping students, educators, and communities use AI responsibly." },
+      { property: "og:title", content: "Ethos.AI - AI Literacy & Safety Workshops" },
       { property: "og:description", content: "Workshops, resources, and research on AI safety and literacy." },
     ],
   }),
@@ -125,12 +125,12 @@ function WhyItMatters() {
         <div className="rounded-3xl bg-surface-2 p-8 sm:p-12">
           <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium">Why This Matters</div>
           <h2 className="mt-4 font-display text-3xl sm:text-4xl font-semibold tracking-tight leading-tight max-w-2xl">
-            Millions of people use AI every day — most have no way to tell when it's wrong.
+            Millions of people use AI every day - most have no way to tell when it's wrong.
           </h2>
           <p className="mt-5 max-w-2xl text-muted-foreground leading-relaxed">
             AI is now part of school, work, research, and everyday decisions. But many people
             don't know when an answer is misleading, incomplete, fabricated, or simply overconfident.
-            These workshops teach the skills to tell the difference — before it matters.
+            These workshops teach the skills to tell the difference - before it matters.
           </p>
         </div>
       </Reveal>
@@ -250,7 +250,7 @@ function ResearchTeaser() {
           <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium">Featured Research</div>
           <h3 className="mt-3 font-display text-2xl sm:text-3xl font-semibold tracking-tight">WOLF</h3>
           <p className="mt-4 max-w-xl text-muted-foreground leading-relaxed">
-            A study of deception, trust, and reasoning in multi-agent AI systems — eight agents,
+            A study of deception, trust, and reasoning in multi-agent AI systems - eight agents,
             one hundred runs, seven thousand statements measured. The findings behind these
             workshops come directly from this research.
           </p>
@@ -275,7 +275,7 @@ function AboutTeaser() {
             </h2>
             <p className="mt-4 max-w-xl text-muted-foreground leading-relaxed">
               AI safety and interpretability researcher studying how AI systems reason, communicate,
-              and sometimes mislead users — and teaching others to recognize it.
+              and sometimes mislead users - and teaching others to recognize it.
             </p>
             <div className="mt-6">
               <Button href="/about" variant="ghost">Read the Full Bio →</Button>

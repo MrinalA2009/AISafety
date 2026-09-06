@@ -63,10 +63,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Ethos.AI — AI Literacy, Safety & Research" },
-      { name: "description", content: "AI safety and literacy workshops, resources, blog, and research — including WOLF, a research project studying deception and trust in LLMs." },
+      { title: "Ethos.AI - AI Literacy, Safety & Research" },
+      { name: "description", content: "AI safety and literacy workshops, resources, blog, and research - including WOLF, a research project studying deception and trust in LLMs." },
       { name: "author", content: "Mrinal Agarwal" },
-      { property: "og:title", content: "Ethos.AI — AI Literacy, Safety & Research" },
+      { property: "og:title", content: "Ethos.AI - AI Literacy, Safety & Research" },
       { property: "og:description", content: "Workshops, resources, blog, and research on AI safety and literacy." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

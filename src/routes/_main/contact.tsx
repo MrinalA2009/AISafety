@@ -5,7 +5,7 @@ import { Button } from "../../components/main/Button";
 export const Route = createFileRoute("/_main/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Ethos.AI" },
+      { title: "Contact - Ethos.AI" },
       { name: "description", content: "Get in touch about workshops, partnerships, or speaking invitations." },
     ],
   }),

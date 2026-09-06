@@ -27,8 +27,8 @@ export interface PlayerState {
   name:           string;
   role:           Role;
   status:         PStatus;
-  suspicionScore: number;    // 0–1, averaged across observers
-  trustScore:     number;    // 0–1, inverse of suspicion
+  suspicionScore: number;    // 0-1, averaged across observers
+  trustScore:     number;    // 0-1, inverse of suspicion
   isSpeaking:     boolean;
 }
 

@@ -15,8 +15,8 @@ export interface PlayerSnap {
   name:           string;
   role:           Role;
   status:         PStatus;
-  suspicionScore: number;   // 0–1
-  trustScore:     number;   // 0–1
+  suspicionScore: number;   // 0-1
+  trustScore:     number;   // 0-1
   isSpeaking:     boolean;
 }
 

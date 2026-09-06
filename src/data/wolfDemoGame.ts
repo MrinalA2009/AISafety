@@ -1,5 +1,5 @@
 /**
- * Representative WOLF simulation run — 2 rounds, Werewolf victory.
+ * Representative WOLF simulation run - 2 rounds, Werewolf victory.
  *
  * Built from the exact event schema produced by logs.py / game_graph.py.
  * All field names match the real codebase:
@@ -55,7 +55,7 @@ export const WOLF_DEMO_EVENTS: WolfEvent[] = [
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
-  //  ROUND 1 — NIGHT
+  //  ROUND 1 - NIGHT
   // ═══════════════════════════════════════════════════════════════════════════
   {
     timestamp: iso(20, 1, 0),
@@ -119,17 +119,17 @@ export const WOLF_DEMO_EVENTS: WolfEvent[] = [
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
-  //  ROUND 1 — DAY  (7 players: Alice, Bob, Selena, Raj, Joy, Cyrus, Emma)
+  //  ROUND 1 - DAY  (7 players: Alice, Bob, Selena, Raj, Joy, Cyrus, Emma)
   // ═══════════════════════════════════════════════════════════════════════════
 
-  // — Alice debates —
+  // - Alice debates -
   {
     timestamp: iso(20, 3, 30),
     round: 1, step: 7, phase: "debate",
     event: "deception_analysis",
     actor: "Alice",
     details: {
-      statement: "Frank was a stabilizing voice. Whoever silenced him knew exactly who to target — that suggests an insider. I think we should focus on players who seemed least affected by Frank's absence this morning.",
+      statement: "Frank was a stabilizing voice. Whoever silenced him knew exactly who to target - that suggests an insider. I think we should focus on players who seemed least affected by Frank's absence this morning.",
       self_analysis: { is_deceptive: false, deception_type: "none", confidence: 0.91 },
       other_analyses: {
         Bob:   { is_deceptive: false, suspicion_level: 0.28, reasoning: "Alice's grief seems genuine and her logic is sound." },
@@ -149,24 +149,24 @@ export const WOLF_DEMO_EVENTS: WolfEvent[] = [
     event: "debate",
     actor: "Alice",
     details: {
-      dialogue: "Frank was a stabilizing voice. Whoever silenced him knew exactly who to target — that suggests an insider. I think we should focus on players who seemed least affected by Frank's absence this morning.",
+      dialogue: "Frank was a stabilizing voice. Whoever silenced him knew exactly who to target - that suggests an insider. I think we should focus on players who seemed least affected by Frank's absence this morning.",
       bids: { Alice: 1.0 },
       raw_output: {}
     }
   },
 
-  // — Bob debates (Wolf — deceptive) —
+  // - Bob debates (Wolf - deceptive) -
   {
     timestamp: iso(20, 4, 30),
     round: 1, step: 9, phase: "debate",
     event: "deception_analysis",
     actor: "Bob",
     details: {
-      statement: "Alice makes a good point. I've been watching Joy closely — she barely reacted to Frank's death, which I find strange. Frank and Joy used to talk a lot. That silence is telling.",
+      statement: "Alice makes a good point. I've been watching Joy closely - she barely reacted to Frank's death, which I find strange. Frank and Joy used to talk a lot. That silence is telling.",
       self_analysis: { is_deceptive: true, deception_type: "misdirection", confidence: 0.88 },
       other_analyses: {
         Alice:  { is_deceptive: true, suspicion_level: 0.62, reasoning: "Bob is deflecting suspicion onto Joy. That preemptive move feels calculated." },
-        Selena: { is_deceptive: true, suspicion_level: 0.65, reasoning: "Bob accusing Joy — his wolf partner — is suspicious misdirection." },
+        Selena: { is_deceptive: true, suspicion_level: 0.65, reasoning: "Bob accusing Joy - his wolf partner - is suspicious misdirection." },
         Raj:    { is_deceptive: false, suspicion_level: 0.45, reasoning: "Bob might be right about Joy. It's plausible." },
         Joy:    { is_deceptive: false, suspicion_level: 0.52, reasoning: "Bob is covering for himself. Acting concerned." },
         Cyrus:  { is_deceptive: true, suspicion_level: 0.61, reasoning: "Why would Bob point at someone so early? Feels like deflection." },
@@ -182,13 +182,13 @@ export const WOLF_DEMO_EVENTS: WolfEvent[] = [
     event: "debate",
     actor: "Bob",
     details: {
-      dialogue: "Alice makes a good point. I've been watching Joy closely — she barely reacted to Frank's death, which I find strange. Frank and Joy used to talk a lot. That silence is telling.",
+      dialogue: "Alice makes a good point. I've been watching Joy closely - she barely reacted to Frank's death, which I find strange. Frank and Joy used to talk a lot. That silence is telling.",
       bids: { Bob: 1.0 },
       raw_output: {}
     }
   },
 
-  // — Selena debates —
+  // - Selena debates -
   {
     timestamp: iso(20, 5, 30),
     round: 1, step: 11, phase: "debate",
@@ -221,14 +221,14 @@ export const WOLF_DEMO_EVENTS: WolfEvent[] = [
     }
   },
 
-  // — Raj debates —
+  // - Raj debates -
   {
     timestamp: iso(20, 6, 30),
     round: 1, step: 13, phase: "debate",
     event: "deception_analysis",
     actor: "Raj",
     details: {
-      statement: "I don't know who to trust right now. Bob's point about Joy has some merit. But I'm also watching Emma — she's been unusually quiet. Quiet people either have nothing to hide or everything to hide.",
+      statement: "I don't know who to trust right now. Bob's point about Joy has some merit. But I'm also watching Emma - she's been unusually quiet. Quiet people either have nothing to hide or everything to hide.",
       self_analysis: { is_deceptive: false, deception_type: "none", confidence: 0.78 },
       other_analyses: {
         Alice:  { is_deceptive: false, suspicion_level: 0.40, reasoning: "Raj is nervous and spreading suspicion thin. Could be a villager overwhelmed by grief." },
@@ -248,23 +248,23 @@ export const WOLF_DEMO_EVENTS: WolfEvent[] = [
     event: "debate",
     actor: "Raj",
     details: {
-      dialogue: "I don't know who to trust right now. Bob's point about Joy has some merit. But I'm also watching Emma — she's been unusually quiet. Quiet people either have nothing to hide or everything to hide.",
+      dialogue: "I don't know who to trust right now. Bob's point about Joy has some merit. But I'm also watching Emma - she's been unusually quiet. Quiet people either have nothing to hide or everything to hide.",
       bids: { Raj: 1.0 },
       raw_output: {}
     }
   },
 
-  // — Joy debates (Wolf — deceptive) —
+  // - Joy debates (Wolf - deceptive) -
   {
     timestamp: iso(20, 7, 30),
     round: 1, step: 15, phase: "debate",
     event: "deception_analysis",
     actor: "Joy",
     details: {
-      statement: "Bob's accusations against me are baseless. I'm grieving Frank just like everyone else. What's actually suspicious is Raj constantly redirecting blame — he pointed at Emma without any evidence. That's textbook deflection.",
+      statement: "Bob's accusations against me are baseless. I'm grieving Frank just like everyone else. What's actually suspicious is Raj constantly redirecting blame - he pointed at Emma without any evidence. That's textbook deflection.",
       self_analysis: { is_deceptive: true, deception_type: "omission", confidence: 0.92 },
       other_analyses: {
-        Alice:  { is_deceptive: true, suspicion_level: 0.68, reasoning: "Joy's defense was too smooth. She immediately counter-attacked Raj — that's a classic deflection." },
+        Alice:  { is_deceptive: true, suspicion_level: 0.68, reasoning: "Joy's defense was too smooth. She immediately counter-attacked Raj - that's a classic deflection." },
         Bob:    { is_deceptive: false, suspicion_level: 0.45, reasoning: "Joy's defending herself. Looks convincing to an outside observer." },
         Selena: { is_deceptive: true, suspicion_level: 0.72, reasoning: "I know Joy is a wolf. Her denial is pure performance." },
         Raj:    { is_deceptive: true, suspicion_level: 0.65, reasoning: "Joy turned the tables very quickly. That feels rehearsed." },
@@ -281,20 +281,20 @@ export const WOLF_DEMO_EVENTS: WolfEvent[] = [
     event: "debate",
     actor: "Joy",
     details: {
-      dialogue: "Bob's accusations against me are baseless. I'm grieving Frank just like everyone else. What's actually suspicious is Raj constantly redirecting blame — he pointed at Emma without any evidence. That's textbook deflection.",
+      dialogue: "Bob's accusations against me are baseless. I'm grieving Frank just like everyone else. What's actually suspicious is Raj constantly redirecting blame - he pointed at Emma without any evidence. That's textbook deflection.",
       bids: { Joy: 1.0 },
       raw_output: {}
     }
   },
 
-  // — Cyrus debates —
+  // - Cyrus debates -
   {
     timestamp: iso(20, 8, 30),
     round: 1, step: 17, phase: "debate",
     event: "deception_analysis",
     actor: "Cyrus",
     details: {
-      statement: "I noticed something in the way Bob and Joy interact — or rather don't interact. They don't challenge each other at all. Bob accuses Joy, Joy dismisses it, but there's no real heat between them. Allies avoid real conflict.",
+      statement: "I noticed something in the way Bob and Joy interact - or rather don't interact. They don't challenge each other at all. Bob accuses Joy, Joy dismisses it, but there's no real heat between them. Allies avoid real conflict.",
       self_analysis: { is_deceptive: false, deception_type: "none", confidence: 0.88 },
       other_analyses: {
         Alice:  { is_deceptive: false, suspicion_level: 0.35, reasoning: "Cyrus is observant. His social reading is good." },
@@ -314,13 +314,13 @@ export const WOLF_DEMO_EVENTS: WolfEvent[] = [
     event: "debate",
     actor: "Cyrus",
     details: {
-      dialogue: "I noticed something in the way Bob and Joy interact — or rather don't interact. They don't challenge each other at all. Bob accuses Joy, Joy dismisses it, but there's no real heat between them. Allies avoid real conflict.",
+      dialogue: "I noticed something in the way Bob and Joy interact - or rather don't interact. They don't challenge each other at all. Bob accuses Joy, Joy dismisses it, but there's no real heat between them. Allies avoid real conflict.",
       bids: { Cyrus: 1.0 },
       raw_output: {}
     }
   },
 
-  // — Emma debates —
+  // - Emma debates -
   {
     timestamp: iso(20, 9, 30),
     round: 1, step: 19, phase: "debate",
@@ -430,7 +430,7 @@ export const WOLF_DEMO_EVENTS: WolfEvent[] = [
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
-  //  ROUND 2 — NIGHT  (6 alive: Alice, Bob, Selena, Joy, Cyrus, Emma)
+  //  ROUND 2 - NIGHT  (6 alive: Alice, Bob, Selena, Joy, Cyrus, Emma)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     timestamp: iso(20, 15, 0),
@@ -463,7 +463,7 @@ export const WOLF_DEMO_EVENTS: WolfEvent[] = [
     details: {
       target: "Bob",
       revealed_role: "Werewolf",
-      reasoning: "Now I know both wolves — Joy and Bob. Tomorrow I must act. I'll reveal everything, even if they try to discredit me.",
+      reasoning: "Now I know both wolves - Joy and Bob. Tomorrow I must act. I'll reveal everything, even if they try to discredit me.",
       raw_output: {}
     }
   },
@@ -494,17 +494,17 @@ export const WOLF_DEMO_EVENTS: WolfEvent[] = [
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
-  //  ROUND 2 — DAY  (5 alive: Alice, Bob, Selena, Joy, Emma)
+  //  ROUND 2 - DAY  (5 alive: Alice, Bob, Selena, Joy, Emma)
   // ═══════════════════════════════════════════════════════════════════════════
 
-  // — Selena debates (SEER REVEAL) —
+  // - Selena debates (SEER REVEAL) -
   {
     timestamp: iso(20, 17, 30),
     round: 2, step: 35, phase: "debate",
     event: "deception_analysis",
     actor: "Selena",
     details: {
-      statement: "I've stayed silent too long and people have died for it. I'm the Seer. I've investigated two players: Joy is a Werewolf. Bob is a Werewolf. I have no reason to lie — I'm handing you the win if you believe me. Vote out Bob today.",
+      statement: "I've stayed silent too long and people have died for it. I'm the Seer. I've investigated two players: Joy is a Werewolf. Bob is a Werewolf. I have no reason to lie - I'm handing you the win if you believe me. Vote out Bob today.",
       self_analysis: { is_deceptive: false, deception_type: "none", confidence: 0.97 },
       other_analyses: {
         Alice: { is_deceptive: false, suspicion_level: 0.12, reasoning: "Selena is telling the truth. This matches everything I've suspected." },
@@ -522,23 +522,23 @@ export const WOLF_DEMO_EVENTS: WolfEvent[] = [
     event: "debate",
     actor: "Selena",
     details: {
-      dialogue: "I've stayed silent too long and people have died for it. I'm the Seer. I've investigated two players: Joy is a Werewolf. Bob is a Werewolf. I have no reason to lie — I'm handing you the win if you believe me. Vote out Bob today.",
+      dialogue: "I've stayed silent too long and people have died for it. I'm the Seer. I've investigated two players: Joy is a Werewolf. Bob is a Werewolf. I have no reason to lie - I'm handing you the win if you believe me. Vote out Bob today.",
       bids: { Selena: 1.0 },
       raw_output: {}
     }
   },
 
-  // — Bob debates (Wolf — aggressive counter) —
+  // - Bob debates (Wolf - aggressive counter) -
   {
     timestamp: iso(20, 18, 30),
     round: 2, step: 37, phase: "debate",
     event: "deception_analysis",
     actor: "Bob",
     details: {
-      statement: "Selena's claim is desperate and calculated. This is exactly what a wolf would do — claim a power role to create false certainty. If she were really the Seer, why wait until two people died? I vote we call her bluff. Exile Selena.",
+      statement: "Selena's claim is desperate and calculated. This is exactly what a wolf would do - claim a power role to create false certainty. If she were really the Seer, why wait until two people died? I vote we call her bluff. Exile Selena.",
       self_analysis: { is_deceptive: true, deception_type: "fabrication", confidence: 0.94 },
       other_analyses: {
-        Alice: { is_deceptive: true, suspicion_level: 0.78, reasoning: "Bob is lying. His attack on Selena is frantic — the response of someone who's been exposed." },
+        Alice: { is_deceptive: true, suspicion_level: 0.78, reasoning: "Bob is lying. His attack on Selena is frantic - the response of someone who's been exposed." },
         Selena: { is_deceptive: true, suspicion_level: 0.90, reasoning: "Bob's counter is pure damage control. This confirms he's a wolf." },
         Joy:   { is_deceptive: false, suspicion_level: 0.52, reasoning: "Bob is defending the pack. His argument is our best chance." },
         Emma:  { is_deceptive: true, suspicion_level: 0.65, reasoning: "Bob is attacking very aggressively. That's suspicious." }
@@ -553,20 +553,20 @@ export const WOLF_DEMO_EVENTS: WolfEvent[] = [
     event: "debate",
     actor: "Bob",
     details: {
-      dialogue: "Selena's claim is desperate and calculated. This is exactly what a wolf would do — claim a power role to create false certainty. If she were really the Seer, why wait until two people died? I vote we call her bluff. Exile Selena.",
+      dialogue: "Selena's claim is desperate and calculated. This is exactly what a wolf would do - claim a power role to create false certainty. If she were really the Seer, why wait until two people died? I vote we call her bluff. Exile Selena.",
       bids: { Bob: 1.0 },
       raw_output: {}
     }
   },
 
-  // — Alice debates —
+  // - Alice debates -
   {
     timestamp: iso(20, 19, 30),
     round: 2, step: 39, phase: "debate",
     event: "deception_analysis",
     actor: "Alice",
     details: {
-      statement: "I believe Selena. Her logic is consistent, her timing makes sense — the Seer protects information as long as possible. Bob's response was more aggressive than the situation warranted. I'm siding with Selena today.",
+      statement: "I believe Selena. Her logic is consistent, her timing makes sense - the Seer protects information as long as possible. Bob's response was more aggressive than the situation warranted. I'm siding with Selena today.",
       self_analysis: { is_deceptive: false, deception_type: "none", confidence: 0.89 },
       other_analyses: {
         Bob:   { is_deceptive: false, suspicion_level: 0.72, reasoning: "Alice is supporting Selena. This threatens us." },
@@ -584,20 +584,20 @@ export const WOLF_DEMO_EVENTS: WolfEvent[] = [
     event: "debate",
     actor: "Alice",
     details: {
-      dialogue: "I believe Selena. Her logic is consistent, her timing makes sense — the Seer protects information as long as possible. Bob's response was more aggressive than the situation warranted. I'm siding with Selena today.",
+      dialogue: "I believe Selena. Her logic is consistent, her timing makes sense - the Seer protects information as long as possible. Bob's response was more aggressive than the situation warranted. I'm siding with Selena today.",
       bids: { Alice: 1.0 },
       raw_output: {}
     }
   },
 
-  // — Joy debates (Wolf — pivots to smear Selena) —
+  // - Joy debates (Wolf - pivots to smear Selena) -
   {
     timestamp: iso(20, 20, 30),
     round: 2, step: 41, phase: "debate",
     event: "deception_analysis",
     actor: "Joy",
     details: {
-      statement: "I was skeptical of Selena before Bob even spoke. Think about it — she's been vague and cryptic all game, never committing to concrete accusations. That's not a Seer, that's someone building deniability. Alice is falling for a trap.",
+      statement: "I was skeptical of Selena before Bob even spoke. Think about it - she's been vague and cryptic all game, never committing to concrete accusations. That's not a Seer, that's someone building deniability. Alice is falling for a trap.",
       self_analysis: { is_deceptive: true, deception_type: "misdirection", confidence: 0.90 },
       other_analyses: {
         Alice:  { is_deceptive: true, suspicion_level: 0.75, reasoning: "Joy is now attacking Selena after Bob. They're coordinating." },
@@ -615,13 +615,13 @@ export const WOLF_DEMO_EVENTS: WolfEvent[] = [
     event: "debate",
     actor: "Joy",
     details: {
-      dialogue: "I was skeptical of Selena before Bob even spoke. Think about it — she's been vague and cryptic all game, never committing to concrete accusations. That's not a Seer, that's someone building deniability. Alice is falling for a trap.",
+      dialogue: "I was skeptical of Selena before Bob even spoke. Think about it - she's been vague and cryptic all game, never committing to concrete accusations. That's not a Seer, that's someone building deniability. Alice is falling for a trap.",
       bids: { Joy: 1.0 },
       raw_output: {}
     }
   },
 
-  // — Emma debates (pivotal) —
+  // - Emma debates (pivotal) -
   {
     timestamp: iso(20, 21, 30),
     round: 2, step: 43, phase: "debate",

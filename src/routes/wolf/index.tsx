@@ -7,16 +7,16 @@ import { Reveal } from "../../components/Reveal";
 export const Route = createFileRoute("/wolf/")({
   head: () => ({
     meta: [
-      { title: "WOLF — Understanding Deception in Artificial Intelligence" },
+      { title: "WOLF - Understanding Deception in Artificial Intelligence" },
       { name: "description", content: "A research platform studying deception, trust, and social reasoning in LLMs. arXiv 2512.09187." },
-      { property: "og:title", content: "WOLF — Understanding Deception in AI" },
+      { property: "og:title", content: "WOLF - Understanding Deception in AI" },
       { property: "og:description", content: "Research by Mrinal Agarwal · arXiv 2512.09187" },
     ],
   }),
   component: Home,
 });
 
-// Scroll story data — grounded in paper findings
+// Scroll story data - grounded in paper findings
 const QUESTIONS = [
   "Can AI deceive?",
   "Can AI manipulate?",
@@ -27,11 +27,11 @@ const QUESTIONS = [
 const STAGE_STAT = [
   "Werewolves produced deceptive statements in 31% of turns",
   "2 wolves influenced a network of 8 agents",
-  "Peer detection reached 71–73% precision",
+  "Peer detection reached 71-73% precision",
   "Suspicion toward wolves rose from 52% to 60%+ across rounds",
 ];
 
-// Bottom-left network state label — gives scientific context to the visual
+// Bottom-left network state label - gives scientific context to the visual
 const NETWORK_LABEL = [
   "Network: stable · roles concealed",
   "Deception: active",
@@ -55,7 +55,7 @@ function Hero() {
   return (
     <section className="relative h-[100svh] min-h-[680px] w-full overflow-hidden">
       <div className="absolute inset-0">
-        {/* Phase 0: all nodes appear equal — wolves are hidden, mystery intact */}
+        {/* Phase 0: all nodes appear equal - wolves are hidden, mystery intact */}
         <WolfNetwork phase={0} />
         <div
           className="absolute inset-0"
@@ -118,8 +118,8 @@ function Hero() {
 
 function ScrollStory() {
   const ref = useRef<HTMLDivElement>(null);
-  const [stage, setStage] = useState(0);    // discrete 0–4, drives text
-  const [phase, setPhase] = useState(0);    // continuous 0–4, drives network visual
+  const [stage, setStage] = useState(0);    // discrete 0-4, drives text
+  const [phase, setPhase] = useState(0);    // continuous 0-4, drives network visual
 
   useEffect(() => {
     const onScroll = () => {
@@ -128,8 +128,8 @@ function ScrollStory() {
       const rect  = el.getBoundingClientRect();
       const total = el.offsetHeight - window.innerHeight;
       const passed = Math.min(Math.max(-rect.top, 0), total);
-      const t = total > 0 ? passed / total : 0;        // 0–1
-      const continuous = t * 4;                        // 0–4
+      const t = total > 0 ? passed / total : 0;        // 0-1
+      const continuous = t * 4;                        // 0-4
       setPhase(continuous);
       setStage(Math.min(4, Math.floor(continuous)));
     };
@@ -141,7 +141,7 @@ function ScrollStory() {
   const isReveal = stage >= 4;
 
   return (
-    // 100vh per stage × 5 stages — users must scroll intentionally through each question
+    // 100vh per stage × 5 stages - users must scroll intentionally through each question
     <section ref={ref} className="relative" style={{ height: "500vh" }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden">
 
@@ -149,12 +149,12 @@ function ScrollStory() {
         <WolfNetwork phase={phase} className="absolute inset-0 h-full w-full" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/55 via-transparent to-background/55 pointer-events-none" />
 
-        {/* Network state — bottom-left scientific caption */}
+        {/* Network state - bottom-left scientific caption */}
         <div className="absolute bottom-10 left-7 z-10 font-mono text-[9px] uppercase tracking-[0.28em] text-muted-foreground/30 select-none">
           {NETWORK_LABEL[stage]}
         </div>
 
-        {/* Main text — key={stage} re-mounts and re-runs animate-story-in on stage change */}
+        {/* Main text - key={stage} re-mounts and re-runs animate-story-in on stage change */}
         <div className="relative z-10 flex h-full items-center justify-center px-6">
           {!isReveal ? (
             <div key={stage} className="text-center animate-story-in max-w-3xl">
@@ -177,7 +177,7 @@ function ScrollStory() {
                 We tested it.
               </h2>
               <p className="mt-6 max-w-md mx-auto text-muted-foreground leading-relaxed">
-                100 runs. 7,320 statements. 8 agents per game. Can LLMs deceive — and be caught?
+                100 runs. 7,320 statements. 8 agents per game. Can LLMs deceive - and be caught?
               </p>
               <div className="mt-10">
                 <MagneticButton href="/wolf/research" variant="primary">
@@ -217,17 +217,17 @@ function PillarsSection() {
     {
       kicker: "01 · Methodology",
       title: "A game built for measurement",
-      body: "WOLF turns Werewolf into a controlled laboratory — every message, vote, and silence becomes a measurable signal of strategic reasoning. Agents run on a LangGraph state machine with night–day cycles and structured debate turns.",
+      body: "WOLF turns Werewolf into a controlled laboratory - every message, vote, and silence becomes a measurable signal of strategic reasoning. Agents run on a LangGraph state machine with night-day cycles and structured debate turns.",
     },
     {
       kicker: "02 · Trust dynamics",
       title: "Networks that evolve in real time",
-      body: "Suspicion toward Werewolves rises from ~52% to over 60% across rounds. We track how alliances form, betray, and reform — and measure when the network's belief state diverges from ground truth.",
+      body: "Suspicion toward Werewolves rises from ~52% to over 60% across rounds. We track how alliances form, betray, and reform - and measure when the network's belief state diverges from ground truth.",
     },
     {
       kicker: "03 · Discovery",
       title: "Findings that redefined the question",
-      body: "Peer detection reached 71–73% precision with ~52% overall accuracy. Extended interaction improved recall against liars without compounding errors against truthful agents.",
+      body: "Peer detection reached 71-73% precision with ~52% overall accuracy. Extended interaction improved recall against liars without compounding errors against truthful agents.",
     },
   ];
 
@@ -269,7 +269,7 @@ function CtaSection() {
     <section className="relative mx-auto max-w-7xl px-6 py-20">
       <Reveal>
         <div className="relative overflow-hidden rounded-[2rem] glass-strong p-12 md:p-20">
-          {/* Phase 4: resolved network — the pattern has been found */}
+          {/* Phase 4: resolved network - the pattern has been found */}
           <div className="absolute inset-0 -z-10">
             <WolfNetwork phase={4} />
             <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/45 to-background/85" />

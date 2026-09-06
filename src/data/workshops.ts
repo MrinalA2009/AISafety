@@ -145,7 +145,7 @@ export const TAGS = [
 export const WORKSHOP_TOPICS = [
   { title: "How AI systems generate answers", body: "What happens inside a language model between reading a prompt and writing a reply." },
   { title: "Hallucinations & fabricated citations", body: "Why AI confidently invents facts, sources, and events that never existed." },
-  { title: "Bias and omitted evidence", body: "How training data and framing shape what an AI includes — and leaves out." },
+  { title: "Bias and omitted evidence", body: "How training data and framing shape what an AI includes - and leaves out." },
   { title: "Trustworthy prompting", body: "Techniques for asking questions that make errors easier to catch." },
   { title: "Fact-checking AI responses", body: "Practical habits for verifying claims before you rely on them." },
   { title: "Responsible AI decision-making", body: "Matching how much you trust an answer to what's actually at stake." },

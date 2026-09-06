@@ -6,7 +6,7 @@ import { RESOURCES, RESOURCE_TYPE_LABELS, type Resource } from "../../data/resou
 export const Route = createFileRoute("/_main/resources")({
   head: () => ({
     meta: [
-      { title: "Resources — Ethos.AI" },
+      { title: "Resources - Ethos.AI" },
       { name: "description", content: "Workshop recordings, slides, guides, and templates for AI literacy and safety." },
     ],
   }),
