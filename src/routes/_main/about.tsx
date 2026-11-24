@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "../../components/Reveal";
 import { Button } from "../../components/main/Button";
-import { RESEARCH_CARDS, MILESTONES, ACHIEVEMENTS } from "../../data/about";
+import { RESEARCH_CARDS, MILESTONES } from "../../data/about";
+import { SESSIONS_HOSTED, REPORTED_PARTICIPANTS, REPORTED_COUNTRIES, REPORTED_AS_OF } from "../../data/impactStats";
 
 export const Route = createFileRoute("/_main/about")({
   head: () => ({
@@ -27,7 +28,6 @@ function About() {
       <JourneySection />
       <SelectedWorkSection />
       <CommunityImpactSection />
-      <AchievementsSection />
       <LookingAheadSection />
       <CtaSection />
     </div>
@@ -111,6 +111,15 @@ function MissionSection() {
                 misleading, and how we can design methods that make them more transparent,
                 trustworthy, and aligned with human values. Capability without understanding
                 is not progress worth celebrating.
+              </p>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                I started the Can You Trust AI? workshop series after my research on deception in
+                language models showed me a problem anyone who uses a chatbot can run into: a fluent
+                explanation can feel convincing while giving the reader very little evidence. I
+                designed the curriculum, drafted the slides and exercises, coordinated outreach and
+                registration, and brought in guest speakers with different perspectives. The sessions
+                are free, and they start with everyday decisions, like opening a source or confirming
+                a message through a trusted channel, before getting into the technology.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
                 Research and public education are equally important to me. As AI becomes
@@ -354,10 +363,10 @@ function CommunityImpactSection() {
         </Reveal>
 
         <div className="grid grid-cols-2 gap-4">
-          <StatCard value={4} suffix="+" label="Years Teaching Ages 12 to 18" />
-          <StatCard value={400} suffix="+" label="Researchers, Educators & Professionals" />
+          <StatCard value={SESSIONS_HOSTED} label="Workshops Hosted" />
+          <StatCard value={REPORTED_PARTICIPANTS} suffix="+" label={`Participants (as of ${REPORTED_AS_OF})`} />
+          <StatCard value={REPORTED_COUNTRIES} label="Countries" />
           <StatCard value="NeurIPS" label="Spotlight Research" />
-          <StatCard value="Public" label="AI Safety Workshops" />
         </div>
       </div>
     </section>
@@ -412,43 +421,6 @@ function StatCard({ value, suffix = "", label }: { value: number | string; suffi
         </div>
       </div>
     </Reveal>
-  );
-}
-
-// ─── Achievements ─────────────────────────────────────────────────────────────
-
-function AchievementsSection() {
-  return (
-    <section className="mx-auto max-w-7xl px-6 py-16">
-      <Reveal>
-        <div className="font-mono text-[11px] tracking-[0.3em] text-primary/80">SELECTED ACHIEVEMENTS</div>
-        <h2 className="mt-5 font-display text-4xl md:text-5xl font-light tracking-tight leading-[1.06] max-w-3xl text-balance">
-          A record of
-          <span className="text-foreground/45"> milestones.</span>
-        </h2>
-      </Reveal>
-
-      <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {ACHIEVEMENTS.map((a, i) => (
-          <Reveal key={a.title} delay={i * 60}>
-            <AchievementCard {...a} />
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function AchievementCard({ icon, title, desc, accent }: { icon: string; title: string; desc: string; accent: boolean }) {
-  return (
-    <article className={`bg-white border border-black/5 shadow-sm group relative overflow-hidden rounded-3xl p-6 transition-all duration-500 hover:-translate-y-1.5 cursor-default ${accent ? "hover:shadow-md" : "hover:shadow-md"}`}>
-      <div className={`absolute -top-10 -right-10 h-20 w-20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 ${accent ? "bg-primary/10" : "bg-accent/8"}`} />
-      <div className={`font-mono text-lg ${accent ? "text-primary/70" : "text-foreground/30 group-hover:text-foreground/50 transition-colors"}`}>
-        {icon}
-      </div>
-      <h3 className="mt-4 font-display text-base tracking-tight leading-snug">{title}</h3>
-      <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{desc}</p>
-    </article>
   );
 }
 

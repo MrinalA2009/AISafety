@@ -24,8 +24,10 @@ import { Route as MainResearchRouteImport } from './routes/_main/research'
 import { Route as MainContactRouteImport } from './routes/_main/contact'
 import { Route as MainAboutRouteImport } from './routes/_main/about'
 import { Route as MainWorkshopsIndexRouteImport } from './routes/_main/workshops/index'
+import { Route as MainSlidesIndexRouteImport } from './routes/_main/slides/index'
 import { Route as MainBlogIndexRouteImport } from './routes/_main/blog/index'
 import { Route as MainWorkshopsSlugRouteImport } from './routes/_main/workshops/$slug'
+import { Route as MainSlidesDeckRouteImport } from './routes/_main/slides/$deck'
 import { Route as MainBlogSlugRouteImport } from './routes/_main/blog/$slug'
 
 const WolfRoute = WolfRouteImport.update({
@@ -102,6 +104,11 @@ const MainWorkshopsIndexRoute = MainWorkshopsIndexRouteImport.update({
   path: '/workshops/',
   getParentRoute: () => MainRoute,
 } as any)
+const MainSlidesIndexRoute = MainSlidesIndexRouteImport.update({
+  id: '/slides/',
+  path: '/slides/',
+  getParentRoute: () => MainRoute,
+} as any)
 const MainBlogIndexRoute = MainBlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
@@ -110,6 +117,11 @@ const MainBlogIndexRoute = MainBlogIndexRouteImport.update({
 const MainWorkshopsSlugRoute = MainWorkshopsSlugRouteImport.update({
   id: '/workshops/$slug',
   path: '/workshops/$slug',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainSlidesDeckRoute = MainSlidesDeckRouteImport.update({
+  id: '/slides/$deck',
+  path: '/slides/$deck',
   getParentRoute: () => MainRoute,
 } as any)
 const MainBlogSlugRoute = MainBlogSlugRouteImport.update({
@@ -133,8 +145,10 @@ export interface FileRoutesByFullPath {
   '/wolf/research': typeof WolfResearchRoute
   '/wolf/': typeof WolfIndexRoute
   '/blog/$slug': typeof MainBlogSlugRoute
+  '/slides/$deck': typeof MainSlidesDeckRoute
   '/workshops/$slug': typeof MainWorkshopsSlugRoute
   '/blog/': typeof MainBlogIndexRoute
+  '/slides/': typeof MainSlidesIndexRoute
   '/workshops/': typeof MainWorkshopsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -151,8 +165,10 @@ export interface FileRoutesByTo {
   '/': typeof MainIndexRoute
   '/wolf': typeof WolfIndexRoute
   '/blog/$slug': typeof MainBlogSlugRoute
+  '/slides/$deck': typeof MainSlidesDeckRoute
   '/workshops/$slug': typeof MainWorkshopsSlugRoute
   '/blog': typeof MainBlogIndexRoute
+  '/slides': typeof MainSlidesIndexRoute
   '/workshops': typeof MainWorkshopsIndexRoute
 }
 export interface FileRoutesById {
@@ -172,8 +188,10 @@ export interface FileRoutesById {
   '/_main/': typeof MainIndexRoute
   '/wolf/': typeof WolfIndexRoute
   '/_main/blog/$slug': typeof MainBlogSlugRoute
+  '/_main/slides/$deck': typeof MainSlidesDeckRoute
   '/_main/workshops/$slug': typeof MainWorkshopsSlugRoute
   '/_main/blog/': typeof MainBlogIndexRoute
+  '/_main/slides/': typeof MainSlidesIndexRoute
   '/_main/workshops/': typeof MainWorkshopsIndexRoute
 }
 export interface FileRouteTypes {
@@ -193,8 +211,10 @@ export interface FileRouteTypes {
     | '/wolf/research'
     | '/wolf/'
     | '/blog/$slug'
+    | '/slides/$deck'
     | '/workshops/$slug'
     | '/blog/'
+    | '/slides/'
     | '/workshops/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -211,8 +231,10 @@ export interface FileRouteTypes {
     | '/'
     | '/wolf'
     | '/blog/$slug'
+    | '/slides/$deck'
     | '/workshops/$slug'
     | '/blog'
+    | '/slides'
     | '/workshops'
   id:
     | '__root__'
@@ -231,8 +253,10 @@ export interface FileRouteTypes {
     | '/_main/'
     | '/wolf/'
     | '/_main/blog/$slug'
+    | '/_main/slides/$deck'
     | '/_main/workshops/$slug'
     | '/_main/blog/'
+    | '/_main/slides/'
     | '/_main/workshops/'
   fileRoutesById: FileRoutesById
 }
@@ -351,6 +375,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainWorkshopsIndexRouteImport
       parentRoute: typeof MainRoute
     }
+    '/_main/slides/': {
+      id: '/_main/slides/'
+      path: '/slides'
+      fullPath: '/slides/'
+      preLoaderRoute: typeof MainSlidesIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
     '/_main/blog/': {
       id: '/_main/blog/'
       path: '/blog'
@@ -363,6 +394,13 @@ declare module '@tanstack/react-router' {
       path: '/workshops/$slug'
       fullPath: '/workshops/$slug'
       preLoaderRoute: typeof MainWorkshopsSlugRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/slides/$deck': {
+      id: '/_main/slides/$deck'
+      path: '/slides/$deck'
+      fullPath: '/slides/$deck'
+      preLoaderRoute: typeof MainSlidesDeckRouteImport
       parentRoute: typeof MainRoute
     }
     '/_main/blog/$slug': {
@@ -382,8 +420,10 @@ interface MainRouteChildren {
   MainResourcesRoute: typeof MainResourcesRoute
   MainIndexRoute: typeof MainIndexRoute
   MainBlogSlugRoute: typeof MainBlogSlugRoute
+  MainSlidesDeckRoute: typeof MainSlidesDeckRoute
   MainWorkshopsSlugRoute: typeof MainWorkshopsSlugRoute
   MainBlogIndexRoute: typeof MainBlogIndexRoute
+  MainSlidesIndexRoute: typeof MainSlidesIndexRoute
   MainWorkshopsIndexRoute: typeof MainWorkshopsIndexRoute
 }
 
@@ -394,8 +434,10 @@ const MainRouteChildren: MainRouteChildren = {
   MainResourcesRoute: MainResourcesRoute,
   MainIndexRoute: MainIndexRoute,
   MainBlogSlugRoute: MainBlogSlugRoute,
+  MainSlidesDeckRoute: MainSlidesDeckRoute,
   MainWorkshopsSlugRoute: MainWorkshopsSlugRoute,
   MainBlogIndexRoute: MainBlogIndexRoute,
+  MainSlidesIndexRoute: MainSlidesIndexRoute,
   MainWorkshopsIndexRoute: MainWorkshopsIndexRoute,
 }
 

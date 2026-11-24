@@ -49,7 +49,7 @@ export const MILESTONES = [
     year: "2026 - Present",
     tag: "Education",
     title: "Community AI Literacy Workshops",
-    desc: "Currently running a series of AI literacy and safety workshops for libraries, schools, senior centers, and community organizations. The goal: make AI safety research accessible to everyone, not just researchers.",
+    desc: "Running the free Can You Trust AI? workshop series: seven sessions since July 2026, on Zoom, at Dublin Library, and at a school in India, with guest speakers on scams, prompting, and the job market. The goal: make the skills for checking AI accessible to everyone, not just researchers.",
     current: true,
   },
   {
@@ -58,12 +58,4 @@ export const MILESTONES = [
     title: "Interpretability and Safeguards",
     desc: "Expanding into representation analysis, mechanistic interpretability, and AI safeguards. The next goal is not just observing AI behavior from the outside, but understanding why it happens from the inside, and building tools that help researchers and the public see it.",
   },
-];
-
-export const ACHIEVEMENTS = [
-  { icon: "◉", title: "NeurIPS Spotlight Research", desc: "Research on AI deception and trust spotlighted at NeurIPS 2025, San Diego.", accent: true },
-  { icon: "◈", title: "AACL-IJCNLP Research", desc: "Published research at the Asia-Pacific Chapter of the Association for Computational Linguistics.", accent: false },
-  { icon: "○", title: "Nationally Ranked Debater", desc: "Nationally ranked competitor in Public Forum Debate.", accent: false },
-  { icon: "⬡", title: "Founder, MathSim", desc: "Founded MathSim, an educational mathematics simulation platform.", accent: false },
-  { icon: "⊕", title: "Founder, DebateSim", desc: "Founded DebateSim, an AI-powered debate practice platform.", accent: false },
 ];

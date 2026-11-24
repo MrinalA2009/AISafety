@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { UPCOMING } from "../data/workshops";
+import { WORKSHOPS } from "../data/workshops";
+import { SLIDE_DECKS } from "../data/slideDecks";
 import { BLOG_POSTS } from "../data/blogPosts";
 
 const BASE_URL = "";
@@ -14,7 +15,9 @@ export const Route = createFileRoute("/sitemap.xml")({
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/workshops", changefreq: "weekly", priority: "0.9" },
-          ...UPCOMING.map((w) => ({ path: `/workshops/${w.slug}`, changefreq: "monthly", priority: "0.6" })),
+          ...WORKSHOPS.map((w) => ({ path: `/workshops/${w.slug}`, changefreq: "monthly", priority: "0.6" })),
+          { path: "/slides", changefreq: "monthly", priority: "0.7" },
+          ...SLIDE_DECKS.map((d) => ({ path: `/slides/${d.id}`, changefreq: "monthly", priority: "0.6" })),
           { path: "/resources", changefreq: "weekly", priority: "0.7" },
           { path: "/blog", changefreq: "weekly", priority: "0.7" },
           ...BLOG_POSTS.map((p) => ({ path: `/blog/${p.slug}`, changefreq: "monthly", priority: "0.5" })),

@@ -21,7 +21,7 @@ function ContactPage() {
           Get in touch
         </h1>
         <p className="mt-5 max-w-md mx-auto text-muted-foreground leading-relaxed">
-          For workshop inquiries, partnerships, or speaking invitations, reach out by email.
+          Want a free workshop for your school, library, or community group? Tell us about your audience and what you would like to cover. We also welcome partnership and speaking invitations.
         </p>
         <div className="mt-8">
           <Button href="mailto:smmrinal2009@gmail.com" variant="primary">

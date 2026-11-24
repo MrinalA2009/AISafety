@@ -1,75 +1,63 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "../../components/Reveal";
 import { Button } from "../../components/main/Button";
-import { useAnimeCounter } from "../../hooks/useAnimeCounter";
-import { UPCOMING, WORKSHOP_TOPICS } from "../../data/workshops";
-import { RESOURCES, RESOURCE_TYPE_LABELS } from "../../data/resources";
-import { IMPACT_STATS } from "../../data/impactStats";
+import { ImpactStrip } from "../../components/main/ImpactStrip";
+import { WorkshopPhoto } from "../../components/main/WorkshopPhoto";
+import { sortedWorkshops, WORKSHOP_TOPICS } from "../../data/workshops";
+import { CLEAR_STEPS } from "../../data/clear";
 
 export const Route = createFileRoute("/_main/")({
   head: () => ({
     meta: [
-      { title: "Ethos.AI - AI Literacy & Safety Workshops" },
-      { name: "description", content: "Workshops, resources, and research on AI safety and literacy - helping students, educators, and communities use AI responsibly." },
-      { property: "og:title", content: "Ethos.AI - AI Literacy & Safety Workshops" },
-      { property: "og:description", content: "Workshops, resources, and research on AI safety and literacy." },
+      { title: "Can You Trust AI? - Ethos.AI" },
+      { name: "description", content: "Practice verifying AI answers, spotting scams, and using AI responsibly in free, student-led workshops." },
+      { property: "og:title", content: "Can You Trust AI? - Ethos.AI" },
+      { property: "og:description", content: "Free, student-led workshops on verifying AI answers, spotting scams, and using AI responsibly." },
     ],
   }),
   component: Home,
 });
 
 function Home() {
-  const next = UPCOMING.find((w) => w.status === "Open") ?? UPCOMING[0];
-  const past = UPCOMING.filter((w) => w.status !== "Open").slice(0, 2);
-
   return (
     <div>
-      <Hero next={next} />
-      <UpcomingWorkshop next={next} />
-      <WhyItMatters />
+      <Hero />
+      <Mission />
+      <Impact />
       <WorkshopTopics />
-      <ImpactStats />
-      <PastWorkshopsPreview past={past} />
+      <Clear />
+      <RecentWorkshops />
+      <HostCta />
       <ResearchTeaser />
       <AboutTeaser />
     </div>
   );
 }
 
-function Hero({ next }: { next: (typeof UPCOMING)[number] }) {
+function Hero() {
   return (
     <section className="mx-auto max-w-5xl px-6 pt-40 pb-24 text-center">
       <Reveal>
-        <div className="text-xs uppercase tracking-[0.3em] text-primary font-medium">AI Literacy &amp; Safety</div>
-        <h1 className="mt-4 font-display text-[clamp(3.2rem,8vw,6rem)] font-semibold tracking-tight leading-[1.02] text-balance">
-          Ethos.AI
+        <div className="text-xs uppercase tracking-[0.3em] text-primary font-medium">
+          Free AI safety workshops · Student-led
+        </div>
+        <h1 className="mt-4 font-display text-[clamp(3rem,8vw,5.5rem)] font-semibold tracking-tight leading-[1.02] text-balance">
+          Can You Trust <span className="text-primary">AI?</span>
         </h1>
       </Reveal>
-      <Reveal delay={100}>
-        <p className="mt-6 font-display text-2xl sm:text-3xl font-medium tracking-tight text-balance">
-          Helping people understand and use <span className="text-primary">AI responsibly.</span>
-        </p>
-      </Reveal>
-      <Reveal delay={180}>
+      <Reveal delay={120}>
         <p className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground leading-relaxed">
-          Free workshops teaching students, educators, and communities how to spot AI
-          hallucinations, verify claims, write better prompts, understand AI's limitations,
-          and make more informed decisions when using AI.
+          Practice verifying AI answers, spotting scams, and using AI responsibly in free,
+          student-led workshops for students, families, educators, and professionals.
         </p>
       </Reveal>
-      <Reveal delay={220}>
+      <Reveal delay={200}>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-          {next?.registerLink ? (
-            <Button href={next.registerLink} variant="primary" target="_blank" rel="noopener noreferrer">
-              Register for the Next Workshop
-            </Button>
-          ) : (
-            <Button href="/workshops" variant="primary">Register for the Next Workshop</Button>
-          )}
-          <Button href="/workshops" variant="ghost">Explore Past Workshops</Button>
+          <Button href="/workshops" variant="primary">Explore the workshops</Button>
+          <Button href="/about" variant="ghost">Read our mission</Button>
         </div>
       </Reveal>
-      <Reveal delay={300}>
+      <Reveal delay={280}>
         <div className="mt-6">
           <Link to="/wolf" className="text-sm text-muted-foreground hover:text-primary transition-colors">
             Explore WOLF Research →
@@ -80,60 +68,39 @@ function Hero({ next }: { next: (typeof UPCOMING)[number] }) {
   );
 }
 
-function UpcomingWorkshop({ next }: { next: (typeof UPCOMING)[number] }) {
+function Mission() {
   return (
     <section className="mx-auto max-w-5xl px-6 pb-24">
       <Reveal>
-        <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium">Next Workshop</div>
-      </Reveal>
-      <Reveal delay={60}>
-        <div className="mt-4 rounded-3xl border border-black/5 bg-white p-8 sm:p-10 shadow-sm">
-          <div className="flex flex-wrap items-center gap-3 text-xs">
-            <span
-              className={`rounded-full px-2.5 py-1 font-medium ${
-                next.status === "Open" ? "bg-primary/10 text-primary" : "bg-surface-2 text-muted-foreground"
-              }`}
-            >
-              {next.status}
-            </span>
-            <span className="text-muted-foreground">{next.format}</span>
-          </div>
-          <h2 className="mt-4 font-display text-2xl sm:text-3xl font-semibold tracking-tight">{next.title}</h2>
-          <p className="mt-2 text-sm text-muted-foreground">
-            {next.date} · {next.time} · {next.location}
+        <div className="rounded-3xl bg-surface-2 p-8 sm:p-12">
+          <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium">Our Mission</div>
+          <h2 className="mt-4 font-display text-3xl sm:text-4xl font-semibold tracking-tight leading-tight max-w-3xl text-balance">
+            An AI answer can sound certain and still be wrong. We teach people how to tell.
+          </h2>
+          <p className="mt-5 max-w-2xl text-muted-foreground leading-relaxed">
+            You don't need to know how to train a model to look up an original source, notice
+            that a question assumes its own conclusion, or confirm a message through a trusted
+            channel. Our workshops start with those everyday decisions and explain the technology
+            behind them along the way, so more people can use AI without giving up their own judgment.
           </p>
-          {next.audience && <p className="mt-2 text-sm text-muted-foreground">Audience: {next.audience}</p>}
-          <p className="mt-4 text-base text-muted-foreground leading-relaxed max-w-2xl">{next.desc}</p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            {next.registerLink && (
-              <Button href={next.registerLink} variant="primary" target="_blank" rel="noopener noreferrer">
-                Register Now
-              </Button>
-            )}
-            <Button href={`/workshops/${next.slug}`} variant="ghost">Learn More</Button>
-          </div>
         </div>
       </Reveal>
     </section>
   );
 }
 
-function WhyItMatters() {
+function Impact() {
   return (
     <section className="mx-auto max-w-5xl px-6 pb-24">
       <Reveal>
-        <div className="rounded-3xl bg-surface-2 p-8 sm:p-12">
-          <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium">Why This Matters</div>
-          <h2 className="mt-4 font-display text-3xl sm:text-4xl font-semibold tracking-tight leading-tight max-w-2xl">
-            Millions of people use AI every day - most have no way to tell when it's wrong.
-          </h2>
-          <p className="mt-5 max-w-2xl text-muted-foreground leading-relaxed">
-            AI is now part of school, work, research, and everyday decisions. But many people
-            don't know when an answer is misleading, incomplete, fabricated, or simply overconfident.
-            These workshops teach the skills to tell the difference - before it matters.
-          </p>
-        </div>
+        <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium">Impact</div>
+        <h2 className="mt-4 font-display text-3xl sm:text-4xl font-semibold tracking-tight">
+          Community reached so far
+        </h2>
       </Reveal>
+      <div className="mt-10">
+        <ImpactStrip />
+      </div>
     </section>
   );
 }
@@ -142,7 +109,7 @@ function WorkshopTopics() {
   return (
     <section className="mx-auto max-w-5xl px-6 pb-24">
       <Reveal>
-        <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium">Curriculum</div>
+        <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium">What We Teach</div>
         <h2 className="mt-4 font-display text-3xl sm:text-4xl font-semibold tracking-tight">
           What the workshops cover
         </h2>
@@ -161,77 +128,93 @@ function WorkshopTopics() {
   );
 }
 
-function ImpactStats() {
-  const stats = [
-    { label: "Workshop Attendees", value: IMPACT_STATS.attendeeCount, suffix: "+" },
-    { label: "Sessions Hosted", value: IMPACT_STATS.sessionsHosted, suffix: "" },
-    { label: "Resources Accessed", value: IMPACT_STATS.resourcesAccessedCount, suffix: "+" },
-    { label: "Partner Events", value: IMPACT_STATS.partnerOrgs.length, suffix: "" },
-  ];
+function Clear() {
   return (
     <section className="mx-auto max-w-5xl px-6 pb-24">
       <Reveal>
-        <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium">Impact</div>
-        <h2 className="mt-4 font-display text-3xl sm:text-4xl font-semibold tracking-tight">
-          Community reached so far
+        <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium">The CLEAR Method</div>
+        <h2 className="mt-4 font-display text-3xl sm:text-4xl font-semibold tracking-tight max-w-2xl text-balance">
+          Five habits for asking better questions and checking what comes back
         </h2>
       </Reveal>
-      <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-        {stats.map((s) => (
-          <StatTile key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
+      <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {CLEAR_STEPS.map((s, i) => (
+          <Reveal key={s.letter} delay={i * 60}>
+            <li className="h-full list-none rounded-2xl border border-black/5 bg-white p-5 shadow-sm">
+              <div className="font-display text-3xl font-semibold text-primary" aria-hidden="true">{s.letter}</div>
+              <h3 className="mt-2 font-display text-base font-semibold tracking-tight">{s.name}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.body}</p>
+            </li>
+          </Reveal>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
+function RecentWorkshops() {
+  const recent = sortedWorkshops().slice(0, 3);
+  return (
+    <section className="mx-auto max-w-5xl px-6 pb-24">
+      <Reveal>
+        <div className="flex items-end justify-between gap-4 flex-wrap">
+          <div>
+            <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium">Workshop Archive</div>
+            <h2 className="mt-4 font-display text-3xl sm:text-4xl font-semibold tracking-tight">
+              Recent workshops
+            </h2>
+          </div>
+          <Button href="/workshops" variant="ghost">See every workshop</Button>
+        </div>
+      </Reveal>
+      <div className="mt-10 grid gap-5 md:grid-cols-3">
+        {recent.map((w, i) => (
+          <Reveal key={w.slug} delay={i * 80}>
+            <Link
+              to="/workshops/$slug"
+              params={{ slug: w.slug }}
+              className="group block h-full overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+            >
+              <WorkshopPhoto workshop={w} className="aspect-[4/3] w-full overflow-hidden" />
+              <div className="p-5">
+                <div className="text-xs text-muted-foreground">{w.dateLabel} · {w.format}</div>
+                <h3 className="mt-2 font-display text-lg font-semibold tracking-tight leading-snug group-hover:text-primary transition-colors">
+                  {w.title}
+                </h3>
+                {w.guest && (
+                  <p className="mt-2 text-xs text-muted-foreground">With {w.guest.name}</p>
+                )}
+              </div>
+            </Link>
+          </Reveal>
         ))}
       </div>
     </section>
   );
 }
 
-function StatTile({ value, suffix, label }: { value: number; suffix: string; label: string }) {
-  const { ref, value: animated } = useAnimeCounter(value);
-  return (
-    <div className="rounded-2xl border border-black/5 bg-white p-6 text-center shadow-sm">
-      <div ref={ref as React.RefObject<HTMLDivElement>} className="font-display text-3xl sm:text-4xl font-semibold text-primary">
-        {animated}{suffix}
-      </div>
-      <div className="mt-2 text-xs uppercase tracking-wide text-muted-foreground">{label}</div>
-    </div>
-  );
-}
-
-function PastWorkshopsPreview({ past }: { past: (typeof UPCOMING) }) {
+function HostCta() {
   return (
     <section className="mx-auto max-w-5xl px-6 pb-24">
       <Reveal>
-        <div className="flex items-end justify-between gap-4 flex-wrap">
-          <div>
-            <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium">Past Workshops &amp; Resources</div>
-            <h2 className="mt-4 font-display text-3xl sm:text-4xl font-semibold tracking-tight">
-              Recordings, slides &amp; guides
-            </h2>
+        <div className="rounded-3xl bg-primary p-8 sm:p-12 text-primary-foreground">
+          <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight max-w-2xl text-balance">
+            Bring a workshop to your school, library, or community group
+          </h2>
+          <p className="mt-4 max-w-xl opacity-90 leading-relaxed">
+            Sessions are free, interactive, and need no technical background. Tell us about your
+            audience and we'll tailor the topics.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link
+              to="/contact"
+              className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-medium text-primary transition hover:-translate-y-0.5 hover:shadow-md"
+            >
+              Ask about hosting
+            </Link>
           </div>
-          <Button href="/resources" variant="ghost">View All Resources</Button>
         </div>
       </Reveal>
-      <div className="mt-10 grid gap-4 sm:grid-cols-2">
-        {(past.length > 0 ? past : UPCOMING.slice(0, 2)).map((w, i) => (
-          <Reveal key={w.slug} delay={i * 80}>
-            <Link to="/workshops/$slug" params={{ slug: w.slug }} className="block h-full rounded-2xl border border-black/5 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-              <h3 className="font-display text-lg font-semibold tracking-tight">{w.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{w.desc}</p>
-            </Link>
-          </Reveal>
-        ))}
-        {RESOURCES.slice(0, 1).map((r, i) => (
-          <Reveal key={r.id} delay={(past.length + i) * 80}>
-            <div className="h-full rounded-2xl border border-black/5 bg-white p-6 shadow-sm">
-              <span className="rounded-full bg-surface-2 px-2.5 py-1 text-[11px] tracking-wide text-muted-foreground">
-                {RESOURCE_TYPE_LABELS[r.type]}
-              </span>
-              <h3 className="mt-3 font-display text-lg font-semibold tracking-tight">{r.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{r.description}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
     </section>
   );
 }
@@ -271,11 +254,12 @@ function AboutTeaser() {
           <div className="flex-1">
             <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium">About</div>
             <h2 className="mt-4 font-display text-2xl sm:text-3xl font-semibold tracking-tight">
-              Led by Mrinal Agarwal
+              Founded and led by Mrinal Agarwal
             </h2>
             <p className="mt-4 max-w-xl text-muted-foreground leading-relaxed">
-              AI safety and interpretability researcher studying how AI systems reason, communicate,
-              and sometimes mislead users - and teaching others to recognize it.
+              Mrinal is a senior at Emerald High School in Dublin, California, and an AI safety
+              researcher. After studying deception in language models, he started this free
+              workshop series so everyone can learn to check what AI tells them.
             </p>
             <div className="mt-6">
               <Button href="/about" variant="ghost">Read the Full Bio →</Button>

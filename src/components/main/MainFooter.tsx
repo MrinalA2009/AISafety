@@ -17,6 +17,7 @@ export function MainFooter() {
           <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground/70">Explore</div>
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link to="/workshops" className="hover:text-primary">Workshops</Link></li>
+            <li><Link to="/slides" className="hover:text-primary">Slides</Link></li>
             <li><Link to="/resources" className="hover:text-primary">Resources</Link></li>
             <li><Link to="/blog" className="hover:text-primary">Blog</Link></li>
             <li><Link to="/research" className="hover:text-primary">Research</Link></li>

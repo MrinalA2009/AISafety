@@ -1,11 +1,14 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Reveal } from "../../../components/Reveal";
 import { Button } from "../../../components/main/Button";
-import { UPCOMING } from "../../../data/workshops";
+import { WorkshopPhoto } from "../../../components/main/WorkshopPhoto";
+import { WORKSHOPS } from "../../../data/workshops";
+import { deckForWorkshop } from "../../../data/slideDecks";
+import { assetUrl } from "../../../lib/assetUrl";
 
 export const Route = createFileRoute("/_main/workshops/$slug")({
   loader: ({ params }) => {
-    const workshop = UPCOMING.find((w) => w.slug === params.slug);
+    const workshop = WORKSHOPS.find((w) => w.slug === params.slug);
     if (!workshop) throw notFound();
     return workshop;
   },
@@ -13,7 +16,7 @@ export const Route = createFileRoute("/_main/workshops/$slug")({
     meta: loaderData
       ? [
           { title: `${loaderData.title} - Ethos.AI` },
-          { name: "description", content: loaderData.desc },
+          { name: "description", content: loaderData.recap },
         ]
       : [],
   }),
@@ -22,47 +25,62 @@ export const Route = createFileRoute("/_main/workshops/$slug")({
 
 function WorkshopDetailPage() {
   const w = Route.useLoaderData();
+  const extraImages = w.images.slice(1);
+  const deck = deckForWorkshop(w.slug);
 
   return (
-    <div className="mx-auto max-w-2xl px-6 pt-36 pb-32">
+    <div className="mx-auto max-w-3xl px-6 pt-36 pb-32">
       <Reveal>
         <Link to="/workshops" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-          ← Back to Workshops
+          ← Back to the archive
         </Link>
         <div className="mt-6 flex items-center gap-3 text-xs text-muted-foreground">
-          <span
-            className={`rounded-full px-2.5 py-1 font-medium ${
-              w.status === "Open" ? "bg-primary/10 text-primary" : "bg-surface-2 text-muted-foreground"
-            }`}
-          >
-            {w.status}
-          </span>
+          <span className="rounded-full bg-surface-2 px-2.5 py-1 font-medium">Completed</span>
           <span>{w.format}</span>
         </div>
         <h1 className="mt-4 font-display text-3xl sm:text-4xl font-semibold tracking-tight leading-tight">
           {w.title}
         </h1>
         <p className="mt-3 text-sm text-muted-foreground">
-          {w.date} · {w.time} · {w.location}
+          {w.dateLabel}
+          {w.time ? ` · ${w.time}` : ""} · {w.location}
         </p>
-        {w.audience && (
-          <p className="mt-2 text-sm text-muted-foreground">Audience: {w.audience}</p>
-        )}
       </Reveal>
 
-      <Reveal delay={100}>
-        <p className="mt-8 text-base text-foreground/85 leading-relaxed">{w.desc}</p>
+      <Reveal delay={80}>
+        <WorkshopPhoto workshop={w} className="mt-8 aspect-[16/9] w-full overflow-hidden rounded-3xl" />
       </Reveal>
 
-      {w.learningOutcomes && w.learningOutcomes.length > 0 && (
-        <Reveal delay={160}>
+      <Reveal delay={120}>
+        <dl className="mt-8 grid gap-4 sm:grid-cols-2 text-sm">
+          <div>
+            <dt className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Mrinal's role</dt>
+            <dd className="mt-1">{w.role}</dd>
+          </div>
+          {w.guest && (
+            <div>
+              <dt className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Guest</dt>
+              <dd className="mt-1">
+                {w.guest.name}, {w.guest.credit.toLowerCase()}
+              </dd>
+            </div>
+          )}
+        </dl>
+      </Reveal>
+
+      <Reveal delay={160}>
+        <p className="mt-8 text-base text-foreground/85 leading-relaxed">{w.recap}</p>
+      </Reveal>
+
+      {w.topics.length > 0 && (
+        <Reveal delay={200}>
           <div className="mt-8">
-            <h2 className="font-display text-lg font-semibold tracking-tight">What you'll learn</h2>
+            <h2 className="font-display text-lg font-semibold tracking-tight">What we covered</h2>
             <ul className="mt-3 space-y-2">
-              {w.learningOutcomes.map((o) => (
-                <li key={o} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                  <span className="mt-2 h-1 w-1 rounded-full bg-primary shrink-0" />
-                  <span>{o}</span>
+              {w.topics.map((t) => (
+                <li key={t} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                  <span className="mt-2 h-1 w-1 rounded-full bg-primary shrink-0" aria-hidden="true" />
+                  <span>{t}</span>
                 </li>
               ))}
             </ul>
@@ -70,15 +88,35 @@ function WorkshopDetailPage() {
         </Reveal>
       )}
 
-      <Reveal delay={220}>
+      {extraImages.length > 0 && (
+        <Reveal delay={240}>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {extraImages.map((img) => (
+              <figure key={img.src} className="overflow-hidden rounded-2xl border border-black/5">
+                <img src={assetUrl(img.src)} alt={img.alt} loading="lazy" className="w-full object-cover" />
+                {img.caption && (
+                  <figcaption className="p-3 text-xs text-muted-foreground">{img.caption}</figcaption>
+                )}
+              </figure>
+            ))}
+          </div>
+        </Reveal>
+      )}
+
+      <Reveal delay={260}>
         <div className="mt-10 flex flex-wrap gap-3">
-          {w.registerLink && (
-            <Button href={w.registerLink} variant="primary" target="_blank" rel="noopener noreferrer">
-              Register Now
-            </Button>
+          {w.related && (
+            <Link to={w.related.to} hash={w.related.hash} className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+              {w.related.label} →
+            </Link>
           )}
-          {w.recordingUrl && <Button href={w.recordingUrl} variant="ghost">Watch Recording</Button>}
-          {w.slidesUrl && <Button href={w.slidesUrl} variant="ghost">View Slides</Button>}
+          {deck && <Button href={`/slides/${deck.id}`} variant="primary">View the slides</Button>}
+          {w.links.map((l) => (
+            <Button key={l.url} href={l.url} variant="ghost" target="_blank" rel="noopener noreferrer">
+              {l.label} ↗
+            </Button>
+          ))}
+          <Button href="/contact" variant="primary">Host a workshop like this</Button>
         </div>
       </Reveal>
     </div>

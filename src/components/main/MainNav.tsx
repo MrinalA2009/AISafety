@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 const items = [
   { to: "/", label: "Home" },
   { to: "/workshops", label: "Workshops" },
+  { to: "/slides", label: "Slides" },
   { to: "/resources", label: "Resources" },
   { to: "/blog", label: "Blog" },
   { to: "/research", label: "Research" },
