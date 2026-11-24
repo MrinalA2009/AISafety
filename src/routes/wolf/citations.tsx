@@ -40,7 +40,7 @@ function Citations() {
         <Reveal delay={100}>
           <div className="mb-10 inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 font-mono text-[11px] tracking-[0.2em] text-muted-foreground/70">
             <span className="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_6px_var(--gold)]" />
-            {CITATION_COUNT} Papers Citing WOLF · arXiv 2512.09187
+            {CITATION_COUNT} Papers Citing WOLF, arXiv 2512.09187
           </div>
         </Reveal>
 
@@ -92,7 +92,7 @@ function Citations() {
                 Falsehoods
               </p>
               <p className="mt-1 text-sm text-muted-foreground">
-                Mrinal Agarwal · arXiv 2512.09187
+                Mrinal Agarwal, arXiv 2512.09187
               </p>
             </div>
 

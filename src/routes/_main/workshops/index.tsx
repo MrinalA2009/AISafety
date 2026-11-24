@@ -262,9 +262,9 @@ function FeaturedSection() {
         <article className="grid overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm md:grid-cols-2">
           <WorkshopPhoto workshop={featured} className="min-h-64 w-full overflow-hidden" />
           <div className="p-8 md:p-12">
-            <div className="font-mono text-[11px] tracking-[0.3em] text-primary/80">FEATURED · COMPLETED</div>
+            <div className="font-mono text-[11px] tracking-[0.3em] text-primary/80">FEATURED</div>
             <h2 className="mt-4 font-display text-3xl tracking-tight leading-snug">{featured.title}</h2>
-            <p className="mt-2 text-sm text-muted-foreground">{featured.dateLabel} · {featured.location}</p>
+            <p className="mt-2 text-sm text-muted-foreground">{featured.dateLabel}, {featured.location}</p>
             <p className="mt-5 text-sm text-muted-foreground leading-relaxed">{featured.recap}</p>
             <div className="mt-7">
               <Button href={`/workshops/${featured.slug}`} variant="ghost">Read the recap →</Button>

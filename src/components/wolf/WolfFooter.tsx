@@ -14,7 +14,7 @@ export function WolfFooter() {
             for studying deception, trust, and social reasoning in artificial intelligence.
           </p>
           <p className="mt-6 text-xs text-muted-foreground/70">
-            arXiv 2512.09187 · Mrinal Agarwal
+            arXiv 2512.09187, Mrinal Agarwal
           </p>
         </div>
         <div>
@@ -37,7 +37,7 @@ export function WolfFooter() {
       <div className="hairline" />
       <div className="mx-auto max-w-7xl px-6 py-6 flex items-center justify-between text-xs text-muted-foreground/70">
         <span>© {new Date().getFullYear()} WOLF Research</span>
-        <span className="font-mono">arXiv · 2512.09187</span>
+        <span className="font-mono">arXiv 2512.09187</span>
       </div>
     </footer>
   );

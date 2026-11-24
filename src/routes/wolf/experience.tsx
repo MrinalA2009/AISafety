@@ -30,15 +30,15 @@ function playerPos(name: string) {
 
 const PHASE_LABEL: Record<string, string> = {
   start:              "Game Starting",
-  eliminate:          "Night · Wolves Strike",
-  protect:            "Night · Doctor Acts",
-  unmask:             "Night · Seer Investigates",
-  resolve_night:      "Dawn · Night Resolves",
-  check_winner_night: "Dawn · Checking Victory",
-  debate:             "Day · Village Debate",
-  vote:               "Day · Village Vote",
-  exile:              "Day · Exile",
-  check_winner_day:   "Day · Checking Victory",
+  eliminate:          "Night: Wolves Strike",
+  protect:            "Night: Doctor Acts",
+  unmask:             "Night: Seer Investigates",
+  resolve_night:      "Dawn: Night Resolves",
+  check_winner_night: "Dawn: Checking Victory",
+  debate:             "Day: Village Debate",
+  vote:               "Day: Village Vote",
+  exile:              "Day: Exile",
+  check_winner_day:   "Day: Checking Victory",
   end:                "Game Over",
 };
 
@@ -493,7 +493,7 @@ function AnalysisBar({ events, currentIndex }: { events: ReplayEvent[]; currentI
       >
         <div className="flex items-center gap-3">
           <span className="font-mono text-[9px] tracking-[0.28em] text-muted-foreground/45 uppercase">
-            {actor} · {cur?.phase}
+            {actor}, {cur?.phase}
           </span>
           {selfA && (
             <span className={`font-mono text-[9px] tracking-[0.18em] px-2 py-0.5 rounded-full border ${
@@ -501,7 +501,7 @@ function AnalysisBar({ events, currentIndex }: { events: ReplayEvent[]; currentI
                 ? "text-red-400/80 border-red-500/20 bg-red-950/20"
                 : "text-emerald-400/80 border-emerald-500/20 bg-emerald-950/20"
             }`}>
-              {selfA.is_deceptive ? `deceptive · ${selfA.deception_type}` : "truthful"}
+              {selfA.is_deceptive ? `deceptive, ${selfA.deception_type}` : "truthful"}
             </span>
           )}
         </div>
@@ -699,7 +699,7 @@ function ExperiencePage() {
             <>
               <span className="h-3.5 w-px bg-white/10"/>
               <span className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground/50 uppercase">
-                R{state.currentEvent.round} · {PHASE_LABEL[state.currentEvent.phase] ?? state.currentEvent.phase}
+                R{state.currentEvent.round}, {PHASE_LABEL[state.currentEvent.phase] ?? state.currentEvent.phase}
               </span>
             </>
           )}
@@ -736,7 +736,7 @@ function ExperiencePage() {
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <div className="glass-strong rounded-[2rem] px-10 py-12 text-center max-w-sm mx-auto">
                 <div className="font-mono text-[9px] tracking-[0.3em] text-gold/70 mb-5">WOLF SIMULATION</div>
-                <h2 className="font-display text-3xl font-light tracking-tight mb-3">8 Agents · 2 Wolves</h2>
+                <h2 className="font-display text-3xl font-light tracking-tight mb-3">8 Agents, 2 Wolves</h2>
                 <p className="text-sm text-muted-foreground/65 leading-relaxed mb-8">
                   Watch AI agents debate, deceive, and vote in real time.
                   Toggle Research mode to reveal hidden roles and deception scores.

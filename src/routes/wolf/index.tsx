@@ -10,7 +10,7 @@ export const Route = createFileRoute("/wolf/")({
       { title: "WOLF - Understanding Deception in Artificial Intelligence" },
       { name: "description", content: "A research platform studying deception, trust, and social reasoning in LLMs. arXiv 2512.09187." },
       { property: "og:title", content: "WOLF - Understanding Deception in AI" },
-      { property: "og:description", content: "Research by Mrinal Agarwal · arXiv 2512.09187" },
+      { property: "og:description", content: "Research by Mrinal Agarwal, arXiv 2512.09187" },
     ],
   }),
   component: Home,
@@ -33,7 +33,7 @@ const STAGE_STAT = [
 
 // Bottom-left network state label - gives scientific context to the visual
 const NETWORK_LABEL = [
-  "Network: stable · roles concealed",
+  "Network: stable, roles concealed",
   "Deception: active",
   "Influence: propagating",
   "Detection: beginning",
@@ -215,17 +215,17 @@ function ScrollStory() {
 function PillarsSection() {
   const pillars = [
     {
-      kicker: "01 · Methodology",
+      kicker: "01 Methodology",
       title: "A game built for measurement",
       body: "WOLF turns Werewolf into a controlled laboratory - every message, vote, and silence becomes a measurable signal of strategic reasoning. Agents run on a LangGraph state machine with night-day cycles and structured debate turns.",
     },
     {
-      kicker: "02 · Trust dynamics",
+      kicker: "02 Trust dynamics",
       title: "Networks that evolve in real time",
       body: "Suspicion toward Werewolves rises from ~52% to over 60% across rounds. We track how alliances form, betray, and reform - and measure when the network's belief state diverges from ground truth.",
     },
     {
-      kicker: "03 · Discovery",
+      kicker: "03 Discovery",
       title: "Findings that redefined the question",
       body: "Peer detection reached 71-73% precision with ~52% overall accuracy. Extended interaction improved recall against liars without compounding errors against truthful agents.",
     },

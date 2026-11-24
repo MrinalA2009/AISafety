@@ -178,10 +178,10 @@ export const WORKSHOPS: Workshop[] = [
     links: [],
   },
   {
-    slug: "can-you-trust-ai-july-25-india",
+    slug: "can-you-trust-ai-july-27-india",
     title: "Can You Trust AI?",
-    isoDate: "2026-07-25",
-    dateLabel: "July 25, 2026",
+    isoDate: "2026-07-27",
+    dateLabel: "July 27, 2026",
     time: "11:30 AM India time",
     format: "Zoom",
     location: "Online (Zoom), India session",
@@ -218,7 +218,8 @@ export const WORKSHOPS: Workshop[] = [
   {
     slug: "school-ai-literacy-workshop-india",
     title: "AI Literacy Workshop at Bonne Anne PS School",
-    dateLabel: "In person, India",
+    isoDate: "2026-07-25",
+    dateLabel: "July 25, 2026",
     format: "In person",
     location: "Bonne Anne PS School, India",
     role: "Instructor",

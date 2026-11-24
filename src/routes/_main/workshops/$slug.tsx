@@ -35,7 +35,6 @@ function WorkshopDetailPage() {
           ← Back to the archive
         </Link>
         <div className="mt-6 flex items-center gap-3 text-xs text-muted-foreground">
-          <span className="rounded-full bg-surface-2 px-2.5 py-1 font-medium">Completed</span>
           <span>{w.format}</span>
         </div>
         <h1 className="mt-4 font-display text-3xl sm:text-4xl font-semibold tracking-tight leading-tight">
@@ -43,7 +42,7 @@ function WorkshopDetailPage() {
         </h1>
         <p className="mt-3 text-sm text-muted-foreground">
           {w.dateLabel}
-          {w.time ? ` · ${w.time}` : ""} · {w.location}
+          {w.time ? `, ${w.time}` : ""}, {w.location}
         </p>
       </Reveal>
 

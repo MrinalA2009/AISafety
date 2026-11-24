@@ -39,7 +39,7 @@ function BlogPostPage() {
           {post.title}
         </h1>
         <p className="mt-4 text-sm text-muted-foreground">
-          {post.author} ·{" "}
+          {post.author},{" "}
           {new Date(post.publishedDate).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}
         </p>
       </Reveal>

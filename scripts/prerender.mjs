@@ -30,7 +30,7 @@ const ROUTES = [
   "/workshops/can-you-trust-ai-dublin-library",
   "/workshops/social-engineering-with-ai",
   "/workshops/prompt-engineering",
-  "/workshops/can-you-trust-ai-july-25-india",
+  "/workshops/can-you-trust-ai-july-27-india",
   "/workshops/can-you-trust-ai-july-11",
   "/workshops/school-ai-literacy-workshop-india",
   "/slides",

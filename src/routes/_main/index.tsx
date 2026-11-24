@@ -39,7 +39,7 @@ function Hero() {
     <section className="mx-auto max-w-5xl px-6 pt-40 pb-24 text-center">
       <Reveal>
         <div className="text-xs uppercase tracking-[0.3em] text-primary font-medium">
-          Free AI safety workshops · Student-led
+          Free AI safety workshops, student-led
         </div>
         <h1 className="mt-4 font-display text-[clamp(3rem,8vw,5.5rem)] font-semibold tracking-tight leading-[1.02] text-balance">
           Can You Trust <span className="text-primary">AI?</span>
@@ -177,7 +177,7 @@ function RecentWorkshops() {
             >
               <WorkshopPhoto workshop={w} className="aspect-[4/3] w-full overflow-hidden" />
               <div className="p-5">
-                <div className="text-xs text-muted-foreground">{w.dateLabel} · {w.format}</div>
+                <div className="text-xs text-muted-foreground">{w.dateLabel}, {w.format}</div>
                 <h3 className="mt-2 font-display text-lg font-semibold tracking-tight leading-snug group-hover:text-primary transition-colors">
                   {w.title}
                 </h3>

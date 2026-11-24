@@ -14,7 +14,7 @@ export const SLIDE_DECKS: SlideDeck[] = [
     title: "Can You Trust AI? Understanding AI Beyond the Hype",
     blurb: "The core workshop: how language models build answers, why confident answers go wrong, and how to check them.",
     pages: 52,
-    workshopSlugs: ["can-you-trust-ai-july-11", "can-you-trust-ai-july-25-india", "can-you-trust-ai-dublin-library"],
+    workshopSlugs: ["can-you-trust-ai-july-11", "can-you-trust-ai-july-27-india", "can-you-trust-ai-dublin-library"],
   },
   {
     id: "prompt-engineering",

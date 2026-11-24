@@ -40,7 +40,7 @@ function Research() {
       {/* Methodology */}
       <section className="mx-auto max-w-7xl px-6 mt-32">
         <Reveal>
-          <div className="font-mono text-[11px] tracking-[0.3em] text-gold/80">01 · METHODOLOGY</div>
+          <div className="font-mono text-[11px] tracking-[0.3em] text-gold/80">01 METHODOLOGY</div>
           <h2 className="mt-4 font-display text-4xl md:text-5xl font-light tracking-tight max-w-3xl text-balance">
             A game becomes a measurement instrument.
           </h2>
@@ -66,7 +66,7 @@ function Research() {
       {/* Suspicion chart */}
       <section className="mx-auto max-w-7xl px-6 mt-32">
         <Reveal>
-          <div className="font-mono text-[11px] tracking-[0.3em] text-gold/80">02 · RESULTS</div>
+          <div className="font-mono text-[11px] tracking-[0.3em] text-gold/80">02 RESULTS</div>
           <h2 className="mt-4 font-display text-4xl md:text-5xl font-light tracking-tight max-w-3xl text-balance">
             Average suspicion score by role.
           </h2>
@@ -106,7 +106,7 @@ function Research() {
       {/* Findings */}
       <section className="mx-auto max-w-7xl px-6 mt-32">
         <Reveal>
-          <div className="font-mono text-[11px] tracking-[0.3em] text-gold/80">03 · FINDINGS</div>
+          <div className="font-mono text-[11px] tracking-[0.3em] text-gold/80">03 FINDINGS</div>
         </Reveal>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {[
